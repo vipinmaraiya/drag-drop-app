@@ -1,0 +1,12 @@
+.drop-container{
+    height: 100px;
+    border:1px solid grey;
+    width: 300px;
+}
+.drop-item{
+    height: 50px;
+    background: grey;
+    width: 80px;
+    overflow: auto;
+    resize: auto;
+}
