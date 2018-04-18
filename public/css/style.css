@@ -128,3 +128,19 @@
 .full-width{
     width:100%;
 }
+
+.left-div{
+    float: left;
+    width: 30%;
+}
+
+.right-div{
+    float: left;
+    width: 60%;
+}
+
+.body-container::after{
+    clear: both;
+    content: " ";
+    display: block;
+}
