@@ -4,15 +4,16 @@
     border:1px solid black;
     display: inline-block;
 }
-.main-container{
-    min-width:400px;
+#main-container{
     height: 400px;
+    float: left;
+    width: 50%;
     border:1px solid black;
 }
 .highlight{
     display: block !important;
 }
-.main-container-hover{
+#main-container-hover{
     text-align: center;
     display: none;
     width: 100%;
@@ -30,11 +31,6 @@
     float: left;
     width: 20%;
     padding-right: 5px;
-}
-
-.right-div{
-    float: left;
-    width: 50%;
 }
 
 .body-container::after{
