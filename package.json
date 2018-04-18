@@ -1,0 +1,32 @@
+{
+  "name": "drag-drop-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery.cleditor.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vipinmaraiya/drag-drop-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vipinmaraiya/drag-drop-app/issues"
+  },
+  "homepage": "https://github.com/vipinmaraiya/drag-drop-app#readme",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "webpack-jquery-ui": "^1.0.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^7.0.1",
+    "webpack": "^2.2.0"
+  }
+}

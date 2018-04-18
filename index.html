@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Drag and Drop</title>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="jquery.cleditor.css"/>
+    <link rel="stylesheet" href="/public/css/style.css"/>
 </head>
 <body>
-    <div id="input" contenteditable="true" class="drop-container" ondrop="onDrop(event)" ondragover="onDragOver(event)">
-
+  <div class="container" contenteditable="false">Container 01</div>
+  <div class="container" contenteditable="false">Container 02</div>
+  <div class="container" contenteditable="false">Container 03</div>
+  <div class="main-container" contenteditable="true">
+      Hello
+    <div class="main-container-hover">
+        Drop here
     </div>
-    <div class="drop-item" contenteditable="false" draggable="true" id="footer" ondragstart="onDragStart(event)">
-Hello
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/work.js"></script>
-    <script src="jquery.cleditor.js"></script>
+  </div>
+    <script src="/public/vendor.js"></script>
+    <script src="/public/bundle.js"></script>
 </body>
 </html>
