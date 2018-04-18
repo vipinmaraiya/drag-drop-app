@@ -101,7 +101,7 @@
 	touch-action: none;
 }
 .container{
-    width:100%;
+    width:200px;
     height: 100px;
     border:1px solid black;
     display: inline-block;
@@ -121,12 +121,11 @@
     height: 50px;
     background: grey;
 }
-
+.full-width{
+    width: 100%;
+}
 .ui-resizable-helper{
     border:2px dotted black !important;
-}
-.full-width{
-    width:100%;
 }
 
 .left-div{
@@ -144,4 +143,8 @@
     clear: both;
     content: " ";
     display: block;
+}
+
+.dotted-border{
+    border: 4px dotted lightgrey !important;
 }

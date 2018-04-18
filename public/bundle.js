@@ -5148,29 +5148,42 @@ return $.ui.safeBlur = function( element ) {
 
 
 $(document).ready(function(){
-    $( ".main-container" ).sortable();
+    $( "#sortable" ).sortable({
+        revert: true
+      });
     $( ".main-container" ).disableSelection();
     $('.container').draggable({
-         helper:'clone'
+        connectToSortable: "#sortable",
+        helper: "clone",
+        revert: "invalid"
     });
 
     $(".container").resizable({
         animate: true
     });
 
+    // $(".full-width").draggable({
+    //     containment:"parent"
+    // })
     $(".main-container").droppable({
         accept:".container",
         drop:function(event, ui){
             $(".main-container-hover").removeClass("highlight");
-            $(".main-container").append(ui.draggable);
-            $(".main-container > .container").addClass("full-width");
+      
+            $(".main-container").removeClass("dotted-border");
             
+            $(".main-container").append(ui.draggable);
+            console.log(ui.draggable)
+            $(".main-container > .container").addClass("full-width");
+            $(".main-container > .container").attr("data-value", "drop-container")
         },
         over:function(event, ui){
             $(".main-container-hover").addClass("highlight");
+            $(".main-container").addClass("dotted-border");
         },
         out:function(event, ui){
             $(".main-container-hover").removeClass("highlight");
+            $(".main-container").removeClass("dotted-border");
         }
         // activate:function(event, ui){
         //     $(".main-container-hover").addClass("highlight");
