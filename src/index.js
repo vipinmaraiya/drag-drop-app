@@ -3,7 +3,9 @@ import "../node_modules/jquery-ui/ui/widgets/draggable";
 import "../node_modules/jquery-ui/ui/widgets/droppable";
 import "../node_modules/jquery-ui/ui/widgets/resizable";
 import "../node_modules/jquery-ui/ui/widgets/sortable";
+import "../node_modules/jquery-ui/ui/widgets/dialog";
 
+import "../node_modules/jquery-ui/themes/base/all.css"
 import "../node_modules/jquery-ui/themes/base/draggable.css"
 import "../node_modules/jquery-ui/themes/base/resizable.css"
 
@@ -11,6 +13,8 @@ import "../node_modules/jquery-ui/themes/base/sortable.css"
 import "../src/css/style.css";
 
 $(document).ready(function(){
+
+   
     $( "#sortable" ).sortable({
         revert: true
       });
@@ -36,7 +40,7 @@ $(document).ready(function(){
       
             $("#main-container").removeClass("dotted-border");
             
-            $("#main-container").append(ui.draggable);
+            $("#dialog-form").dialog("open")
             $("#main-container > .container").addClass("full-width");
             $("#main-container > .container").attr("data-value", "drop-container")
         },
@@ -56,4 +60,27 @@ $(document).ready(function(){
         // }
         // hoverClass:"highlight"
     });
+
+    $("#dialog-form").dialog({
+        autoOpen: false,
+        height: 400,
+        width: 350,
+        modal: true,
+        buttons: {
+          "Add": function(){
+              
+            $("#main-container").append("ADDD");
+            $("#dialog-form").dialog( "close" );
+          },
+          Cancel: function() {
+            $("#dialog-form").dialog( "close" );
+          }
+        },
+        close: function() {
+        //   form[ 0 ].reset();
+        //   allFields.removeClass( "ui-state-error" );
+        }
+      });
+     
+
 })

@@ -18,11 +18,15 @@ module.exports = {
     module:{
         rules:[
             {
-                loader: ExtractTextPlugin.extract({
-                 loader:"css-loader"
+                use: ExtractTextPlugin.extract({
+                    use:"css-loader"
                 }),
                 test:/\.css/
             },
+            {
+                test:/\.(jpe?g|png|svg|gif)$/,
+               use:'url-loader'
+            }
         ]
     },
 

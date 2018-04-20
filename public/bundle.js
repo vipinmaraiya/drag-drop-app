@@ -25,7 +25,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		// AMD. Register as an anonymous module.
 		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 			__webpack_require__(0),
-			__webpack_require__(6),
+			__webpack_require__(9),
 			__webpack_require__(1),
 			__webpack_require__(2)
 		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
@@ -263,11 +263,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 			__webpack_require__(0),
 			__webpack_require__(3),
-			__webpack_require__(5),
-			__webpack_require__(7),
-			__webpack_require__(17),
-			__webpack_require__(18),
-			__webpack_require__(8),
+			__webpack_require__(6),
+			__webpack_require__(11),
+			__webpack_require__(12),
+			__webpack_require__(13),
+			__webpack_require__(14),
 			__webpack_require__(1),
 			__webpack_require__(2)
 		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
@@ -1500,715 +1500,6 @@ return $.ui.draggable;
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery UI :data 1.12.1
- * http://jqueryui.com
- *
- * Copyright jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- */
-
-//>>label: :data Selector
-//>>group: Core
-//>>description: Selects elements which have data stored under the specified key.
-//>>docs: http://api.jqueryui.com/data-selector/
-
-( function( factory ) {
-	if ( true ) {
-
-		// AMD. Register as an anonymous module.
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-
-		// Browser globals
-		factory( jQuery );
-	}
-} ( function( $ ) {
-return $.extend( $.expr[ ":" ], {
-	data: $.expr.createPseudo ?
-		$.expr.createPseudo( function( dataName ) {
-			return function( elem ) {
-				return !!$.data( elem, dataName );
-			};
-		} ) :
-
-		// Support: jQuery <1.8
-		function( elem, i, match ) {
-			return !!$.data( elem, match[ 3 ] );
-		}
-} );
-} ) );
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
-	if ( true ) {
-
-		// AMD. Register as an anonymous module.
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-
-		// Browser globals
-		factory( jQuery );
-	}
-} ( function( $ ) {
-
-// This file is deprecated
-return $.ui.ie = !!/msie [\w.]+/.exec( navigator.userAgent.toLowerCase() );
-} ) );
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
-	if ( true ) {
-
-		// AMD. Register as an anonymous module.
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-
-		// Browser globals
-		factory( jQuery );
-	}
-} ( function( $ ) {
-
-// $.ui.plugin is deprecated. Use $.widget() extensions instead.
-return $.ui.plugin = {
-	add: function( module, option, set ) {
-		var i,
-			proto = $.ui[ module ].prototype;
-		for ( i in set ) {
-			proto.plugins[ i ] = proto.plugins[ i ] || [];
-			proto.plugins[ i ].push( [ option, set[ i ] ] );
-		}
-	},
-	call: function( instance, name, args, allowDisconnected ) {
-		var i,
-			set = instance.plugins[ name ];
-
-		if ( !set ) {
-			return;
-		}
-
-		if ( !allowDisconnected && ( !instance.element[ 0 ].parentNode ||
-				instance.element[ 0 ].parentNode.nodeType === 11 ) ) {
-			return;
-		}
-
-		for ( i = 0; i < set.length; i++ ) {
-			if ( instance.options[ set[ i ][ 0 ] ] ) {
-				set[ i ][ 1 ].apply( instance.element, args );
-			}
-		}
-	}
-};
-
-} ) );
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery UI Scroll Parent 1.12.1
- * http://jqueryui.com
- *
- * Copyright jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- */
-
-//>>label: scrollParent
-//>>group: Core
-//>>description: Get the closest ancestor element that is scrollable.
-//>>docs: http://api.jqueryui.com/scrollParent/
-
-( function( factory ) {
-	if ( true ) {
-
-		// AMD. Register as an anonymous module.
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-
-		// Browser globals
-		factory( jQuery );
-	}
-} ( function( $ ) {
-
-return $.fn.scrollParent = function( includeHidden ) {
-	var position = this.css( "position" ),
-		excludeStaticParent = position === "absolute",
-		overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/,
-		scrollParent = this.parents().filter( function() {
-			var parent = $( this );
-			if ( excludeStaticParent && parent.css( "position" ) === "static" ) {
-				return false;
-			}
-			return overflowRegex.test( parent.css( "overflow" ) + parent.css( "overflow-y" ) +
-				parent.css( "overflow-x" ) );
-		} ).eq( 0 );
-
-	return position === "fixed" || !scrollParent.length ?
-		$( this[ 0 ].ownerDocument || document ) :
-		scrollParent;
-};
-
-} ) );
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery UI Droppable 1.12.1
- * http://jqueryui.com
- *
- * Copyright jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- */
-
-//>>label: Droppable
-//>>group: Interactions
-//>>description: Enables drop targets for draggable elements.
-//>>docs: http://api.jqueryui.com/droppable/
-//>>demos: http://jqueryui.com/droppable/
-
-( function( factory ) {
-	if ( true ) {
-
-		// AMD. Register as an anonymous module.
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-			__webpack_require__(0),
-			__webpack_require__(4),
-			__webpack_require__(3),
-			__webpack_require__(1),
-			__webpack_require__(2)
-		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-
-		// Browser globals
-		factory( jQuery );
-	}
-}( function( $ ) {
-
-$.widget( "ui.droppable", {
-	version: "1.12.1",
-	widgetEventPrefix: "drop",
-	options: {
-		accept: "*",
-		addClasses: true,
-		greedy: false,
-		scope: "default",
-		tolerance: "intersect",
-
-		// Callbacks
-		activate: null,
-		deactivate: null,
-		drop: null,
-		out: null,
-		over: null
-	},
-	_create: function() {
-
-		var proportions,
-			o = this.options,
-			accept = o.accept;
-
-		this.isover = false;
-		this.isout = true;
-
-		this.accept = $.isFunction( accept ) ? accept : function( d ) {
-			return d.is( accept );
-		};
-
-		this.proportions = function( /* valueToWrite */ ) {
-			if ( arguments.length ) {
-
-				// Store the droppable's proportions
-				proportions = arguments[ 0 ];
-			} else {
-
-				// Retrieve or derive the droppable's proportions
-				return proportions ?
-					proportions :
-					proportions = {
-						width: this.element[ 0 ].offsetWidth,
-						height: this.element[ 0 ].offsetHeight
-					};
-			}
-		};
-
-		this._addToManager( o.scope );
-
-		o.addClasses && this._addClass( "ui-droppable" );
-
-	},
-
-	_addToManager: function( scope ) {
-
-		// Add the reference and positions to the manager
-		$.ui.ddmanager.droppables[ scope ] = $.ui.ddmanager.droppables[ scope ] || [];
-		$.ui.ddmanager.droppables[ scope ].push( this );
-	},
-
-	_splice: function( drop ) {
-		var i = 0;
-		for ( ; i < drop.length; i++ ) {
-			if ( drop[ i ] === this ) {
-				drop.splice( i, 1 );
-			}
-		}
-	},
-
-	_destroy: function() {
-		var drop = $.ui.ddmanager.droppables[ this.options.scope ];
-
-		this._splice( drop );
-	},
-
-	_setOption: function( key, value ) {
-
-		if ( key === "accept" ) {
-			this.accept = $.isFunction( value ) ? value : function( d ) {
-				return d.is( value );
-			};
-		} else if ( key === "scope" ) {
-			var drop = $.ui.ddmanager.droppables[ this.options.scope ];
-
-			this._splice( drop );
-			this._addToManager( value );
-		}
-
-		this._super( key, value );
-	},
-
-	_activate: function( event ) {
-		var draggable = $.ui.ddmanager.current;
-
-		this._addActiveClass();
-		if ( draggable ) {
-			this._trigger( "activate", event, this.ui( draggable ) );
-		}
-	},
-
-	_deactivate: function( event ) {
-		var draggable = $.ui.ddmanager.current;
-
-		this._removeActiveClass();
-		if ( draggable ) {
-			this._trigger( "deactivate", event, this.ui( draggable ) );
-		}
-	},
-
-	_over: function( event ) {
-
-		var draggable = $.ui.ddmanager.current;
-
-		// Bail if draggable and droppable are same element
-		if ( !draggable || ( draggable.currentItem ||
-				draggable.element )[ 0 ] === this.element[ 0 ] ) {
-			return;
-		}
-
-		if ( this.accept.call( this.element[ 0 ], ( draggable.currentItem ||
-				draggable.element ) ) ) {
-			this._addHoverClass();
-			this._trigger( "over", event, this.ui( draggable ) );
-		}
-
-	},
-
-	_out: function( event ) {
-
-		var draggable = $.ui.ddmanager.current;
-
-		// Bail if draggable and droppable are same element
-		if ( !draggable || ( draggable.currentItem ||
-				draggable.element )[ 0 ] === this.element[ 0 ] ) {
-			return;
-		}
-
-		if ( this.accept.call( this.element[ 0 ], ( draggable.currentItem ||
-				draggable.element ) ) ) {
-			this._removeHoverClass();
-			this._trigger( "out", event, this.ui( draggable ) );
-		}
-
-	},
-
-	_drop: function( event, custom ) {
-
-		var draggable = custom || $.ui.ddmanager.current,
-			childrenIntersection = false;
-
-		// Bail if draggable and droppable are same element
-		if ( !draggable || ( draggable.currentItem ||
-				draggable.element )[ 0 ] === this.element[ 0 ] ) {
-			return false;
-		}
-
-		this.element
-			.find( ":data(ui-droppable)" )
-			.not( ".ui-draggable-dragging" )
-			.each( function() {
-				var inst = $( this ).droppable( "instance" );
-				if (
-					inst.options.greedy &&
-					!inst.options.disabled &&
-					inst.options.scope === draggable.options.scope &&
-					inst.accept.call(
-						inst.element[ 0 ], ( draggable.currentItem || draggable.element )
-					) &&
-					intersect(
-						draggable,
-						$.extend( inst, { offset: inst.element.offset() } ),
-						inst.options.tolerance, event
-					)
-				) {
-					childrenIntersection = true;
-					return false; }
-			} );
-		if ( childrenIntersection ) {
-			return false;
-		}
-
-		if ( this.accept.call( this.element[ 0 ],
-				( draggable.currentItem || draggable.element ) ) ) {
-			this._removeActiveClass();
-			this._removeHoverClass();
-
-			this._trigger( "drop", event, this.ui( draggable ) );
-			return this.element;
-		}
-
-		return false;
-
-	},
-
-	ui: function( c ) {
-		return {
-			draggable: ( c.currentItem || c.element ),
-			helper: c.helper,
-			position: c.position,
-			offset: c.positionAbs
-		};
-	},
-
-	// Extension points just to make backcompat sane and avoid duplicating logic
-	// TODO: Remove in 1.13 along with call to it below
-	_addHoverClass: function() {
-		this._addClass( "ui-droppable-hover" );
-	},
-
-	_removeHoverClass: function() {
-		this._removeClass( "ui-droppable-hover" );
-	},
-
-	_addActiveClass: function() {
-		this._addClass( "ui-droppable-active" );
-	},
-
-	_removeActiveClass: function() {
-		this._removeClass( "ui-droppable-active" );
-	}
-} );
-
-var intersect = $.ui.intersect = ( function() {
-	function isOverAxis( x, reference, size ) {
-		return ( x >= reference ) && ( x < ( reference + size ) );
-	}
-
-	return function( draggable, droppable, toleranceMode, event ) {
-
-		if ( !droppable.offset ) {
-			return false;
-		}
-
-		var x1 = ( draggable.positionAbs ||
-				draggable.position.absolute ).left + draggable.margins.left,
-			y1 = ( draggable.positionAbs ||
-				draggable.position.absolute ).top + draggable.margins.top,
-			x2 = x1 + draggable.helperProportions.width,
-			y2 = y1 + draggable.helperProportions.height,
-			l = droppable.offset.left,
-			t = droppable.offset.top,
-			r = l + droppable.proportions().width,
-			b = t + droppable.proportions().height;
-
-		switch ( toleranceMode ) {
-		case "fit":
-			return ( l <= x1 && x2 <= r && t <= y1 && y2 <= b );
-		case "intersect":
-			return ( l < x1 + ( draggable.helperProportions.width / 2 ) && // Right Half
-				x2 - ( draggable.helperProportions.width / 2 ) < r && // Left Half
-				t < y1 + ( draggable.helperProportions.height / 2 ) && // Bottom Half
-				y2 - ( draggable.helperProportions.height / 2 ) < b ); // Top Half
-		case "pointer":
-			return isOverAxis( event.pageY, t, droppable.proportions().height ) &&
-				isOverAxis( event.pageX, l, droppable.proportions().width );
-		case "touch":
-			return (
-				( y1 >= t && y1 <= b ) || // Top edge touching
-				( y2 >= t && y2 <= b ) || // Bottom edge touching
-				( y1 < t && y2 > b ) // Surrounded vertically
-			) && (
-				( x1 >= l && x1 <= r ) || // Left edge touching
-				( x2 >= l && x2 <= r ) || // Right edge touching
-				( x1 < l && x2 > r ) // Surrounded horizontally
-			);
-		default:
-			return false;
-		}
-	};
-} )();
-
-/*
-	This manager tracks offsets of draggables and droppables
-*/
-$.ui.ddmanager = {
-	current: null,
-	droppables: { "default": [] },
-	prepareOffsets: function( t, event ) {
-
-		var i, j,
-			m = $.ui.ddmanager.droppables[ t.options.scope ] || [],
-			type = event ? event.type : null, // workaround for #2317
-			list = ( t.currentItem || t.element ).find( ":data(ui-droppable)" ).addBack();
-
-		droppablesLoop: for ( i = 0; i < m.length; i++ ) {
-
-			// No disabled and non-accepted
-			if ( m[ i ].options.disabled || ( t && !m[ i ].accept.call( m[ i ].element[ 0 ],
-					( t.currentItem || t.element ) ) ) ) {
-				continue;
-			}
-
-			// Filter out elements in the current dragged item
-			for ( j = 0; j < list.length; j++ ) {
-				if ( list[ j ] === m[ i ].element[ 0 ] ) {
-					m[ i ].proportions().height = 0;
-					continue droppablesLoop;
-				}
-			}
-
-			m[ i ].visible = m[ i ].element.css( "display" ) !== "none";
-			if ( !m[ i ].visible ) {
-				continue;
-			}
-
-			// Activate the droppable if used directly from draggables
-			if ( type === "mousedown" ) {
-				m[ i ]._activate.call( m[ i ], event );
-			}
-
-			m[ i ].offset = m[ i ].element.offset();
-			m[ i ].proportions( {
-				width: m[ i ].element[ 0 ].offsetWidth,
-				height: m[ i ].element[ 0 ].offsetHeight
-			} );
-
-		}
-
-	},
-	drop: function( draggable, event ) {
-
-		var dropped = false;
-
-		// Create a copy of the droppables in case the list changes during the drop (#9116)
-		$.each( ( $.ui.ddmanager.droppables[ draggable.options.scope ] || [] ).slice(), function() {
-
-			if ( !this.options ) {
-				return;
-			}
-			if ( !this.options.disabled && this.visible &&
-					intersect( draggable, this, this.options.tolerance, event ) ) {
-				dropped = this._drop.call( this, event ) || dropped;
-			}
-
-			if ( !this.options.disabled && this.visible && this.accept.call( this.element[ 0 ],
-					( draggable.currentItem || draggable.element ) ) ) {
-				this.isout = true;
-				this.isover = false;
-				this._deactivate.call( this, event );
-			}
-
-		} );
-		return dropped;
-
-	},
-	dragStart: function( draggable, event ) {
-
-		// Listen for scrolling so that if the dragging causes scrolling the position of the
-		// droppables can be recalculated (see #5003)
-		draggable.element.parentsUntil( "body" ).on( "scroll.droppable", function() {
-			if ( !draggable.options.refreshPositions ) {
-				$.ui.ddmanager.prepareOffsets( draggable, event );
-			}
-		} );
-	},
-	drag: function( draggable, event ) {
-
-		// If you have a highly dynamic page, you might try this option. It renders positions
-		// every time you move the mouse.
-		if ( draggable.options.refreshPositions ) {
-			$.ui.ddmanager.prepareOffsets( draggable, event );
-		}
-
-		// Run through all droppables and check their positions based on specific tolerance options
-		$.each( $.ui.ddmanager.droppables[ draggable.options.scope ] || [], function() {
-
-			if ( this.options.disabled || this.greedyChild || !this.visible ) {
-				return;
-			}
-
-			var parentInstance, scope, parent,
-				intersects = intersect( draggable, this, this.options.tolerance, event ),
-				c = !intersects && this.isover ?
-					"isout" :
-					( intersects && !this.isover ? "isover" : null );
-			if ( !c ) {
-				return;
-			}
-
-			if ( this.options.greedy ) {
-
-				// find droppable parents with same scope
-				scope = this.options.scope;
-				parent = this.element.parents( ":data(ui-droppable)" ).filter( function() {
-					return $( this ).droppable( "instance" ).options.scope === scope;
-				} );
-
-				if ( parent.length ) {
-					parentInstance = $( parent[ 0 ] ).droppable( "instance" );
-					parentInstance.greedyChild = ( c === "isover" );
-				}
-			}
-
-			// We just moved into a greedy child
-			if ( parentInstance && c === "isover" ) {
-				parentInstance.isover = false;
-				parentInstance.isout = true;
-				parentInstance._out.call( parentInstance, event );
-			}
-
-			this[ c ] = true;
-			this[ c === "isout" ? "isover" : "isout" ] = false;
-			this[ c === "isover" ? "_over" : "_out" ].call( this, event );
-
-			// We just moved out of a greedy child
-			if ( parentInstance && c === "isout" ) {
-				parentInstance.isout = false;
-				parentInstance.isover = true;
-				parentInstance._over.call( parentInstance, event );
-			}
-		} );
-
-	},
-	dragStop: function( draggable, event ) {
-		draggable.element.parentsUntil( "body" ).off( "scroll.droppable" );
-
-		// Call prepareOffsets one final time since IE does not fire return scroll events when
-		// overflow was caused by drag (see #5003)
-		if ( !draggable.options.refreshPositions ) {
-			$.ui.ddmanager.prepareOffsets( draggable, event );
-		}
-	}
-};
-
-// DEPRECATED
-// TODO: switch return back to widget declaration at top of file when this is removed
-if ( $.uiBackCompat !== false ) {
-
-	// Backcompat for activeClass and hoverClass options
-	$.widget( "ui.droppable", $.ui.droppable, {
-		options: {
-			hoverClass: false,
-			activeClass: false
-		},
-		_addActiveClass: function() {
-			this._super();
-			if ( this.options.activeClass ) {
-				this.element.addClass( this.options.activeClass );
-			}
-		},
-		_removeActiveClass: function() {
-			this._super();
-			if ( this.options.activeClass ) {
-				this.element.removeClass( this.options.activeClass );
-			}
-		},
-		_addHoverClass: function() {
-			this._super();
-			if ( this.options.hoverClass ) {
-				this.element.addClass( this.options.hoverClass );
-			}
-		},
-		_removeHoverClass: function() {
-			this._super();
-			if ( this.options.hoverClass ) {
-				this.element.removeClass( this.options.hoverClass );
-			}
-		}
-	} );
-}
-
-return $.ui.droppable;
-
-} ) );
-
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * jQuery UI Resizable 1.12.1
  * http://jqueryui.com
  *
@@ -2233,8 +1524,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 			__webpack_require__(0),
 			__webpack_require__(3),
-			__webpack_require__(16),
-			__webpack_require__(7),
+			__webpack_require__(23),
+			__webpack_require__(11),
 			__webpack_require__(1),
 			__webpack_require__(2)
 		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
@@ -3415,7 +2706,1927 @@ return $.ui.resizable;
 
 
 /***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI :data 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: :data Selector
+//>>group: Core
+//>>description: Selects elements which have data stored under the specified key.
+//>>docs: http://api.jqueryui.com/data-selector/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+return $.extend( $.expr[ ":" ], {
+	data: $.expr.createPseudo ?
+		$.expr.createPseudo( function( dataName ) {
+			return function( elem ) {
+				return !!$.data( elem, dataName );
+			};
+		} ) :
+
+		// Support: jQuery <1.8
+		function( elem, i, match ) {
+			return !!$.data( elem, match[ 3 ] );
+		}
+} );
+} ) );
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+
+// Internal use only
+return $.ui.escapeSelector = ( function() {
+	var selectorEscape = /([!"#$%&'()*+,./:;<=>?@[\]^`{|}~])/g;
+	return function( selector ) {
+		return selector.replace( selectorEscape, "\\$1" );
+	};
+} )();
+
+} ) );
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Focusable 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: :focusable Selector
+//>>group: Core
+//>>description: Selects elements which can be focused.
+//>>docs: http://api.jqueryui.com/focusable-selector/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+
+// Selectors
+$.ui.focusable = function( element, hasTabindex ) {
+	var map, mapName, img, focusableIfVisible, fieldset,
+		nodeName = element.nodeName.toLowerCase();
+
+	if ( "area" === nodeName ) {
+		map = element.parentNode;
+		mapName = map.name;
+		if ( !element.href || !mapName || map.nodeName.toLowerCase() !== "map" ) {
+			return false;
+		}
+		img = $( "img[usemap='#" + mapName + "']" );
+		return img.length > 0 && img.is( ":visible" );
+	}
+
+	if ( /^(input|select|textarea|button|object)$/.test( nodeName ) ) {
+		focusableIfVisible = !element.disabled;
+
+		if ( focusableIfVisible ) {
+
+			// Form controls within a disabled fieldset are disabled.
+			// However, controls within the fieldset's legend do not get disabled.
+			// Since controls generally aren't placed inside legends, we skip
+			// this portion of the check.
+			fieldset = $( element ).closest( "fieldset" )[ 0 ];
+			if ( fieldset ) {
+				focusableIfVisible = !fieldset.disabled;
+			}
+		}
+	} else if ( "a" === nodeName ) {
+		focusableIfVisible = element.href || hasTabindex;
+	} else {
+		focusableIfVisible = hasTabindex;
+	}
+
+	return focusableIfVisible && $( element ).is( ":visible" ) && visible( $( element ) );
+};
+
+// Support: IE 8 only
+// IE 8 doesn't resolve inherit to visible/hidden for computed values
+function visible( element ) {
+	var visibility = element.css( "visibility" );
+	while ( visibility === "inherit" ) {
+		element = element.parent();
+		visibility = element.css( "visibility" );
+	}
+	return visibility !== "hidden";
+}
+
+$.extend( $.expr[ ":" ], {
+	focusable: function( element ) {
+		return $.ui.focusable( element, $.attr( element, "tabindex" ) != null );
+	}
+} );
+
+return $.ui.focusable;
+
+} ) );
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+
+// This file is deprecated
+return $.ui.ie = !!/msie [\w.]+/.exec( navigator.userAgent.toLowerCase() );
+} ) );
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Keycode 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Keycode
+//>>group: Core
+//>>description: Provide keycodes as keynames
+//>>docs: http://api.jqueryui.com/jQuery.ui.keyCode/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+return $.ui.keyCode = {
+	BACKSPACE: 8,
+	COMMA: 188,
+	DELETE: 46,
+	DOWN: 40,
+	END: 35,
+	ENTER: 13,
+	ESCAPE: 27,
+	HOME: 36,
+	LEFT: 37,
+	PAGE_DOWN: 34,
+	PAGE_UP: 33,
+	PERIOD: 190,
+	RIGHT: 39,
+	SPACE: 32,
+	TAB: 9,
+	UP: 38
+};
+
+} ) );
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+
+// $.ui.plugin is deprecated. Use $.widget() extensions instead.
+return $.ui.plugin = {
+	add: function( module, option, set ) {
+		var i,
+			proto = $.ui[ module ].prototype;
+		for ( i in set ) {
+			proto.plugins[ i ] = proto.plugins[ i ] || [];
+			proto.plugins[ i ].push( [ option, set[ i ] ] );
+		}
+	},
+	call: function( instance, name, args, allowDisconnected ) {
+		var i,
+			set = instance.plugins[ name ];
+
+		if ( !set ) {
+			return;
+		}
+
+		if ( !allowDisconnected && ( !instance.element[ 0 ].parentNode ||
+				instance.element[ 0 ].parentNode.nodeType === 11 ) ) {
+			return;
+		}
+
+		for ( i = 0; i < set.length; i++ ) {
+			if ( instance.options[ set[ i ][ 0 ] ] ) {
+				set[ i ][ 1 ].apply( instance.element, args );
+			}
+		}
+	}
+};
+
+} ) );
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+return $.ui.safeActiveElement = function( document ) {
+	var activeElement;
+
+	// Support: IE 9 only
+	// IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
+	try {
+		activeElement = document.activeElement;
+	} catch ( error ) {
+		activeElement = document.body;
+	}
+
+	// Support: IE 9 - 11 only
+	// IE may return null instead of an element
+	// Interestingly, this only seems to occur when NOT in an iframe
+	if ( !activeElement ) {
+		activeElement = document.body;
+	}
+
+	// Support: IE 11 only
+	// IE11 returns a seemingly empty object in some cases when accessing
+	// document.activeElement from an <iframe>
+	if ( !activeElement.nodeName ) {
+		activeElement = document.body;
+	}
+
+	return activeElement;
+};
+
+} ) );
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+return $.ui.safeBlur = function( element ) {
+
+	// Support: IE9 - 10 only
+	// If the <body> is blurred, IE will switch windows, see #9420
+	if ( element && element.nodeName.toLowerCase() !== "body" ) {
+		$( element ).trigger( "blur" );
+	}
+};
+
+} ) );
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Scroll Parent 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: scrollParent
+//>>group: Core
+//>>description: Get the closest ancestor element that is scrollable.
+//>>docs: http://api.jqueryui.com/scrollParent/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+
+return $.fn.scrollParent = function( includeHidden ) {
+	var position = this.css( "position" ),
+		excludeStaticParent = position === "absolute",
+		overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/,
+		scrollParent = this.parents().filter( function() {
+			var parent = $( this );
+			if ( excludeStaticParent && parent.css( "position" ) === "static" ) {
+				return false;
+			}
+			return overflowRegex.test( parent.css( "overflow" ) + parent.css( "overflow-y" ) +
+				parent.css( "overflow-x" ) );
+		} ).eq( 0 );
+
+	return position === "fixed" || !scrollParent.length ?
+		$( this[ 0 ].ownerDocument || document ) :
+		scrollParent;
+};
+
+} ) );
+
+
+/***/ }),
 /* 15 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Dialog 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Dialog
+//>>group: Widgets
+//>>description: Displays customizable dialog windows.
+//>>docs: http://api.jqueryui.com/dialog/
+//>>demos: http://jqueryui.com/dialog/
+//>>css.structure: ../../themes/base/core.css
+//>>css.structure: ../../themes/base/dialog.css
+//>>css.theme: ../../themes/base/theme.css
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+			__webpack_require__(0),
+			__webpack_require__(30),
+			__webpack_require__(4),
+			__webpack_require__(3),
+			__webpack_require__(5),
+			__webpack_require__(8),
+			__webpack_require__(10),
+			__webpack_require__(27),
+			__webpack_require__(12),
+			__webpack_require__(13),
+			__webpack_require__(28),
+			__webpack_require__(29),
+			__webpack_require__(1),
+			__webpack_require__(2)
+		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}( function( $ ) {
+
+$.widget( "ui.dialog", {
+	version: "1.12.1",
+	options: {
+		appendTo: "body",
+		autoOpen: true,
+		buttons: [],
+		classes: {
+			"ui-dialog": "ui-corner-all",
+			"ui-dialog-titlebar": "ui-corner-all"
+		},
+		closeOnEscape: true,
+		closeText: "Close",
+		draggable: true,
+		hide: null,
+		height: "auto",
+		maxHeight: null,
+		maxWidth: null,
+		minHeight: 150,
+		minWidth: 150,
+		modal: false,
+		position: {
+			my: "center",
+			at: "center",
+			of: window,
+			collision: "fit",
+
+			// Ensure the titlebar is always visible
+			using: function( pos ) {
+				var topOffset = $( this ).css( pos ).offset().top;
+				if ( topOffset < 0 ) {
+					$( this ).css( "top", pos.top - topOffset );
+				}
+			}
+		},
+		resizable: true,
+		show: null,
+		title: null,
+		width: 300,
+
+		// Callbacks
+		beforeClose: null,
+		close: null,
+		drag: null,
+		dragStart: null,
+		dragStop: null,
+		focus: null,
+		open: null,
+		resize: null,
+		resizeStart: null,
+		resizeStop: null
+	},
+
+	sizeRelatedOptions: {
+		buttons: true,
+		height: true,
+		maxHeight: true,
+		maxWidth: true,
+		minHeight: true,
+		minWidth: true,
+		width: true
+	},
+
+	resizableRelatedOptions: {
+		maxHeight: true,
+		maxWidth: true,
+		minHeight: true,
+		minWidth: true
+	},
+
+	_create: function() {
+		this.originalCss = {
+			display: this.element[ 0 ].style.display,
+			width: this.element[ 0 ].style.width,
+			minHeight: this.element[ 0 ].style.minHeight,
+			maxHeight: this.element[ 0 ].style.maxHeight,
+			height: this.element[ 0 ].style.height
+		};
+		this.originalPosition = {
+			parent: this.element.parent(),
+			index: this.element.parent().children().index( this.element )
+		};
+		this.originalTitle = this.element.attr( "title" );
+		if ( this.options.title == null && this.originalTitle != null ) {
+			this.options.title = this.originalTitle;
+		}
+
+		// Dialogs can't be disabled
+		if ( this.options.disabled ) {
+			this.options.disabled = false;
+		}
+
+		this._createWrapper();
+
+		this.element
+			.show()
+			.removeAttr( "title" )
+			.appendTo( this.uiDialog );
+
+		this._addClass( "ui-dialog-content", "ui-widget-content" );
+
+		this._createTitlebar();
+		this._createButtonPane();
+
+		if ( this.options.draggable && $.fn.draggable ) {
+			this._makeDraggable();
+		}
+		if ( this.options.resizable && $.fn.resizable ) {
+			this._makeResizable();
+		}
+
+		this._isOpen = false;
+
+		this._trackFocus();
+	},
+
+	_init: function() {
+		if ( this.options.autoOpen ) {
+			this.open();
+		}
+	},
+
+	_appendTo: function() {
+		var element = this.options.appendTo;
+		if ( element && ( element.jquery || element.nodeType ) ) {
+			return $( element );
+		}
+		return this.document.find( element || "body" ).eq( 0 );
+	},
+
+	_destroy: function() {
+		var next,
+			originalPosition = this.originalPosition;
+
+		this._untrackInstance();
+		this._destroyOverlay();
+
+		this.element
+			.removeUniqueId()
+			.css( this.originalCss )
+
+			// Without detaching first, the following becomes really slow
+			.detach();
+
+		this.uiDialog.remove();
+
+		if ( this.originalTitle ) {
+			this.element.attr( "title", this.originalTitle );
+		}
+
+		next = originalPosition.parent.children().eq( originalPosition.index );
+
+		// Don't try to place the dialog next to itself (#8613)
+		if ( next.length && next[ 0 ] !== this.element[ 0 ] ) {
+			next.before( this.element );
+		} else {
+			originalPosition.parent.append( this.element );
+		}
+	},
+
+	widget: function() {
+		return this.uiDialog;
+	},
+
+	disable: $.noop,
+	enable: $.noop,
+
+	close: function( event ) {
+		var that = this;
+
+		if ( !this._isOpen || this._trigger( "beforeClose", event ) === false ) {
+			return;
+		}
+
+		this._isOpen = false;
+		this._focusedElement = null;
+		this._destroyOverlay();
+		this._untrackInstance();
+
+		if ( !this.opener.filter( ":focusable" ).trigger( "focus" ).length ) {
+
+			// Hiding a focused element doesn't trigger blur in WebKit
+			// so in case we have nothing to focus on, explicitly blur the active element
+			// https://bugs.webkit.org/show_bug.cgi?id=47182
+			$.ui.safeBlur( $.ui.safeActiveElement( this.document[ 0 ] ) );
+		}
+
+		this._hide( this.uiDialog, this.options.hide, function() {
+			that._trigger( "close", event );
+		} );
+	},
+
+	isOpen: function() {
+		return this._isOpen;
+	},
+
+	moveToTop: function() {
+		this._moveToTop();
+	},
+
+	_moveToTop: function( event, silent ) {
+		var moved = false,
+			zIndices = this.uiDialog.siblings( ".ui-front:visible" ).map( function() {
+				return +$( this ).css( "z-index" );
+			} ).get(),
+			zIndexMax = Math.max.apply( null, zIndices );
+
+		if ( zIndexMax >= +this.uiDialog.css( "z-index" ) ) {
+			this.uiDialog.css( "z-index", zIndexMax + 1 );
+			moved = true;
+		}
+
+		if ( moved && !silent ) {
+			this._trigger( "focus", event );
+		}
+		return moved;
+	},
+
+	open: function() {
+		var that = this;
+		if ( this._isOpen ) {
+			if ( this._moveToTop() ) {
+				this._focusTabbable();
+			}
+			return;
+		}
+
+		this._isOpen = true;
+		this.opener = $( $.ui.safeActiveElement( this.document[ 0 ] ) );
+
+		this._size();
+		this._position();
+		this._createOverlay();
+		this._moveToTop( null, true );
+
+		// Ensure the overlay is moved to the top with the dialog, but only when
+		// opening. The overlay shouldn't move after the dialog is open so that
+		// modeless dialogs opened after the modal dialog stack properly.
+		if ( this.overlay ) {
+			this.overlay.css( "z-index", this.uiDialog.css( "z-index" ) - 1 );
+		}
+
+		this._show( this.uiDialog, this.options.show, function() {
+			that._focusTabbable();
+			that._trigger( "focus" );
+		} );
+
+		// Track the dialog immediately upon openening in case a focus event
+		// somehow occurs outside of the dialog before an element inside the
+		// dialog is focused (#10152)
+		this._makeFocusTarget();
+
+		this._trigger( "open" );
+	},
+
+	_focusTabbable: function() {
+
+		// Set focus to the first match:
+		// 1. An element that was focused previously
+		// 2. First element inside the dialog matching [autofocus]
+		// 3. Tabbable element inside the content element
+		// 4. Tabbable element inside the buttonpane
+		// 5. The close button
+		// 6. The dialog itself
+		var hasFocus = this._focusedElement;
+		if ( !hasFocus ) {
+			hasFocus = this.element.find( "[autofocus]" );
+		}
+		if ( !hasFocus.length ) {
+			hasFocus = this.element.find( ":tabbable" );
+		}
+		if ( !hasFocus.length ) {
+			hasFocus = this.uiDialogButtonPane.find( ":tabbable" );
+		}
+		if ( !hasFocus.length ) {
+			hasFocus = this.uiDialogTitlebarClose.filter( ":tabbable" );
+		}
+		if ( !hasFocus.length ) {
+			hasFocus = this.uiDialog;
+		}
+		hasFocus.eq( 0 ).trigger( "focus" );
+	},
+
+	_keepFocus: function( event ) {
+		function checkFocus() {
+			var activeElement = $.ui.safeActiveElement( this.document[ 0 ] ),
+				isActive = this.uiDialog[ 0 ] === activeElement ||
+					$.contains( this.uiDialog[ 0 ], activeElement );
+			if ( !isActive ) {
+				this._focusTabbable();
+			}
+		}
+		event.preventDefault();
+		checkFocus.call( this );
+
+		// support: IE
+		// IE <= 8 doesn't prevent moving focus even with event.preventDefault()
+		// so we check again later
+		this._delay( checkFocus );
+	},
+
+	_createWrapper: function() {
+		this.uiDialog = $( "<div>" )
+			.hide()
+			.attr( {
+
+				// Setting tabIndex makes the div focusable
+				tabIndex: -1,
+				role: "dialog"
+			} )
+			.appendTo( this._appendTo() );
+
+		this._addClass( this.uiDialog, "ui-dialog", "ui-widget ui-widget-content ui-front" );
+		this._on( this.uiDialog, {
+			keydown: function( event ) {
+				if ( this.options.closeOnEscape && !event.isDefaultPrevented() && event.keyCode &&
+						event.keyCode === $.ui.keyCode.ESCAPE ) {
+					event.preventDefault();
+					this.close( event );
+					return;
+				}
+
+				// Prevent tabbing out of dialogs
+				if ( event.keyCode !== $.ui.keyCode.TAB || event.isDefaultPrevented() ) {
+					return;
+				}
+				var tabbables = this.uiDialog.find( ":tabbable" ),
+					first = tabbables.filter( ":first" ),
+					last = tabbables.filter( ":last" );
+
+				if ( ( event.target === last[ 0 ] || event.target === this.uiDialog[ 0 ] ) &&
+						!event.shiftKey ) {
+					this._delay( function() {
+						first.trigger( "focus" );
+					} );
+					event.preventDefault();
+				} else if ( ( event.target === first[ 0 ] ||
+						event.target === this.uiDialog[ 0 ] ) && event.shiftKey ) {
+					this._delay( function() {
+						last.trigger( "focus" );
+					} );
+					event.preventDefault();
+				}
+			},
+			mousedown: function( event ) {
+				if ( this._moveToTop( event ) ) {
+					this._focusTabbable();
+				}
+			}
+		} );
+
+		// We assume that any existing aria-describedby attribute means
+		// that the dialog content is marked up properly
+		// otherwise we brute force the content as the description
+		if ( !this.element.find( "[aria-describedby]" ).length ) {
+			this.uiDialog.attr( {
+				"aria-describedby": this.element.uniqueId().attr( "id" )
+			} );
+		}
+	},
+
+	_createTitlebar: function() {
+		var uiDialogTitle;
+
+		this.uiDialogTitlebar = $( "<div>" );
+		this._addClass( this.uiDialogTitlebar,
+			"ui-dialog-titlebar", "ui-widget-header ui-helper-clearfix" );
+		this._on( this.uiDialogTitlebar, {
+			mousedown: function( event ) {
+
+				// Don't prevent click on close button (#8838)
+				// Focusing a dialog that is partially scrolled out of view
+				// causes the browser to scroll it into view, preventing the click event
+				if ( !$( event.target ).closest( ".ui-dialog-titlebar-close" ) ) {
+
+					// Dialog isn't getting focus when dragging (#8063)
+					this.uiDialog.trigger( "focus" );
+				}
+			}
+		} );
+
+		// Support: IE
+		// Use type="button" to prevent enter keypresses in textboxes from closing the
+		// dialog in IE (#9312)
+		this.uiDialogTitlebarClose = $( "<button type='button'></button>" )
+			.button( {
+				label: $( "<a>" ).text( this.options.closeText ).html(),
+				icon: "ui-icon-closethick",
+				showLabel: false
+			} )
+			.appendTo( this.uiDialogTitlebar );
+
+		this._addClass( this.uiDialogTitlebarClose, "ui-dialog-titlebar-close" );
+		this._on( this.uiDialogTitlebarClose, {
+			click: function( event ) {
+				event.preventDefault();
+				this.close( event );
+			}
+		} );
+
+		uiDialogTitle = $( "<span>" ).uniqueId().prependTo( this.uiDialogTitlebar );
+		this._addClass( uiDialogTitle, "ui-dialog-title" );
+		this._title( uiDialogTitle );
+
+		this.uiDialogTitlebar.prependTo( this.uiDialog );
+
+		this.uiDialog.attr( {
+			"aria-labelledby": uiDialogTitle.attr( "id" )
+		} );
+	},
+
+	_title: function( title ) {
+		if ( this.options.title ) {
+			title.text( this.options.title );
+		} else {
+			title.html( "&#160;" );
+		}
+	},
+
+	_createButtonPane: function() {
+		this.uiDialogButtonPane = $( "<div>" );
+		this._addClass( this.uiDialogButtonPane, "ui-dialog-buttonpane",
+			"ui-widget-content ui-helper-clearfix" );
+
+		this.uiButtonSet = $( "<div>" )
+			.appendTo( this.uiDialogButtonPane );
+		this._addClass( this.uiButtonSet, "ui-dialog-buttonset" );
+
+		this._createButtons();
+	},
+
+	_createButtons: function() {
+		var that = this,
+			buttons = this.options.buttons;
+
+		// If we already have a button pane, remove it
+		this.uiDialogButtonPane.remove();
+		this.uiButtonSet.empty();
+
+		if ( $.isEmptyObject( buttons ) || ( $.isArray( buttons ) && !buttons.length ) ) {
+			this._removeClass( this.uiDialog, "ui-dialog-buttons" );
+			return;
+		}
+
+		$.each( buttons, function( name, props ) {
+			var click, buttonOptions;
+			props = $.isFunction( props ) ?
+				{ click: props, text: name } :
+				props;
+
+			// Default to a non-submitting button
+			props = $.extend( { type: "button" }, props );
+
+			// Change the context for the click callback to be the main element
+			click = props.click;
+			buttonOptions = {
+				icon: props.icon,
+				iconPosition: props.iconPosition,
+				showLabel: props.showLabel,
+
+				// Deprecated options
+				icons: props.icons,
+				text: props.text
+			};
+
+			delete props.click;
+			delete props.icon;
+			delete props.iconPosition;
+			delete props.showLabel;
+
+			// Deprecated options
+			delete props.icons;
+			if ( typeof props.text === "boolean" ) {
+				delete props.text;
+			}
+
+			$( "<button></button>", props )
+				.button( buttonOptions )
+				.appendTo( that.uiButtonSet )
+				.on( "click", function() {
+					click.apply( that.element[ 0 ], arguments );
+				} );
+		} );
+		this._addClass( this.uiDialog, "ui-dialog-buttons" );
+		this.uiDialogButtonPane.appendTo( this.uiDialog );
+	},
+
+	_makeDraggable: function() {
+		var that = this,
+			options = this.options;
+
+		function filteredUi( ui ) {
+			return {
+				position: ui.position,
+				offset: ui.offset
+			};
+		}
+
+		this.uiDialog.draggable( {
+			cancel: ".ui-dialog-content, .ui-dialog-titlebar-close",
+			handle: ".ui-dialog-titlebar",
+			containment: "document",
+			start: function( event, ui ) {
+				that._addClass( $( this ), "ui-dialog-dragging" );
+				that._blockFrames();
+				that._trigger( "dragStart", event, filteredUi( ui ) );
+			},
+			drag: function( event, ui ) {
+				that._trigger( "drag", event, filteredUi( ui ) );
+			},
+			stop: function( event, ui ) {
+				var left = ui.offset.left - that.document.scrollLeft(),
+					top = ui.offset.top - that.document.scrollTop();
+
+				options.position = {
+					my: "left top",
+					at: "left" + ( left >= 0 ? "+" : "" ) + left + " " +
+						"top" + ( top >= 0 ? "+" : "" ) + top,
+					of: that.window
+				};
+				that._removeClass( $( this ), "ui-dialog-dragging" );
+				that._unblockFrames();
+				that._trigger( "dragStop", event, filteredUi( ui ) );
+			}
+		} );
+	},
+
+	_makeResizable: function() {
+		var that = this,
+			options = this.options,
+			handles = options.resizable,
+
+			// .ui-resizable has position: relative defined in the stylesheet
+			// but dialogs have to use absolute or fixed positioning
+			position = this.uiDialog.css( "position" ),
+			resizeHandles = typeof handles === "string" ?
+				handles :
+				"n,e,s,w,se,sw,ne,nw";
+
+		function filteredUi( ui ) {
+			return {
+				originalPosition: ui.originalPosition,
+				originalSize: ui.originalSize,
+				position: ui.position,
+				size: ui.size
+			};
+		}
+
+		this.uiDialog.resizable( {
+			cancel: ".ui-dialog-content",
+			containment: "document",
+			alsoResize: this.element,
+			maxWidth: options.maxWidth,
+			maxHeight: options.maxHeight,
+			minWidth: options.minWidth,
+			minHeight: this._minHeight(),
+			handles: resizeHandles,
+			start: function( event, ui ) {
+				that._addClass( $( this ), "ui-dialog-resizing" );
+				that._blockFrames();
+				that._trigger( "resizeStart", event, filteredUi( ui ) );
+			},
+			resize: function( event, ui ) {
+				that._trigger( "resize", event, filteredUi( ui ) );
+			},
+			stop: function( event, ui ) {
+				var offset = that.uiDialog.offset(),
+					left = offset.left - that.document.scrollLeft(),
+					top = offset.top - that.document.scrollTop();
+
+				options.height = that.uiDialog.height();
+				options.width = that.uiDialog.width();
+				options.position = {
+					my: "left top",
+					at: "left" + ( left >= 0 ? "+" : "" ) + left + " " +
+						"top" + ( top >= 0 ? "+" : "" ) + top,
+					of: that.window
+				};
+				that._removeClass( $( this ), "ui-dialog-resizing" );
+				that._unblockFrames();
+				that._trigger( "resizeStop", event, filteredUi( ui ) );
+			}
+		} )
+			.css( "position", position );
+	},
+
+	_trackFocus: function() {
+		this._on( this.widget(), {
+			focusin: function( event ) {
+				this._makeFocusTarget();
+				this._focusedElement = $( event.target );
+			}
+		} );
+	},
+
+	_makeFocusTarget: function() {
+		this._untrackInstance();
+		this._trackingInstances().unshift( this );
+	},
+
+	_untrackInstance: function() {
+		var instances = this._trackingInstances(),
+			exists = $.inArray( this, instances );
+		if ( exists !== -1 ) {
+			instances.splice( exists, 1 );
+		}
+	},
+
+	_trackingInstances: function() {
+		var instances = this.document.data( "ui-dialog-instances" );
+		if ( !instances ) {
+			instances = [];
+			this.document.data( "ui-dialog-instances", instances );
+		}
+		return instances;
+	},
+
+	_minHeight: function() {
+		var options = this.options;
+
+		return options.height === "auto" ?
+			options.minHeight :
+			Math.min( options.minHeight, options.height );
+	},
+
+	_position: function() {
+
+		// Need to show the dialog to get the actual offset in the position plugin
+		var isVisible = this.uiDialog.is( ":visible" );
+		if ( !isVisible ) {
+			this.uiDialog.show();
+		}
+		this.uiDialog.position( this.options.position );
+		if ( !isVisible ) {
+			this.uiDialog.hide();
+		}
+	},
+
+	_setOptions: function( options ) {
+		var that = this,
+			resize = false,
+			resizableOptions = {};
+
+		$.each( options, function( key, value ) {
+			that._setOption( key, value );
+
+			if ( key in that.sizeRelatedOptions ) {
+				resize = true;
+			}
+			if ( key in that.resizableRelatedOptions ) {
+				resizableOptions[ key ] = value;
+			}
+		} );
+
+		if ( resize ) {
+			this._size();
+			this._position();
+		}
+		if ( this.uiDialog.is( ":data(ui-resizable)" ) ) {
+			this.uiDialog.resizable( "option", resizableOptions );
+		}
+	},
+
+	_setOption: function( key, value ) {
+		var isDraggable, isResizable,
+			uiDialog = this.uiDialog;
+
+		if ( key === "disabled" ) {
+			return;
+		}
+
+		this._super( key, value );
+
+		if ( key === "appendTo" ) {
+			this.uiDialog.appendTo( this._appendTo() );
+		}
+
+		if ( key === "buttons" ) {
+			this._createButtons();
+		}
+
+		if ( key === "closeText" ) {
+			this.uiDialogTitlebarClose.button( {
+
+				// Ensure that we always pass a string
+				label: $( "<a>" ).text( "" + this.options.closeText ).html()
+			} );
+		}
+
+		if ( key === "draggable" ) {
+			isDraggable = uiDialog.is( ":data(ui-draggable)" );
+			if ( isDraggable && !value ) {
+				uiDialog.draggable( "destroy" );
+			}
+
+			if ( !isDraggable && value ) {
+				this._makeDraggable();
+			}
+		}
+
+		if ( key === "position" ) {
+			this._position();
+		}
+
+		if ( key === "resizable" ) {
+
+			// currently resizable, becoming non-resizable
+			isResizable = uiDialog.is( ":data(ui-resizable)" );
+			if ( isResizable && !value ) {
+				uiDialog.resizable( "destroy" );
+			}
+
+			// Currently resizable, changing handles
+			if ( isResizable && typeof value === "string" ) {
+				uiDialog.resizable( "option", "handles", value );
+			}
+
+			// Currently non-resizable, becoming resizable
+			if ( !isResizable && value !== false ) {
+				this._makeResizable();
+			}
+		}
+
+		if ( key === "title" ) {
+			this._title( this.uiDialogTitlebar.find( ".ui-dialog-title" ) );
+		}
+	},
+
+	_size: function() {
+
+		// If the user has resized the dialog, the .ui-dialog and .ui-dialog-content
+		// divs will both have width and height set, so we need to reset them
+		var nonContentHeight, minContentHeight, maxContentHeight,
+			options = this.options;
+
+		// Reset content sizing
+		this.element.show().css( {
+			width: "auto",
+			minHeight: 0,
+			maxHeight: "none",
+			height: 0
+		} );
+
+		if ( options.minWidth > options.width ) {
+			options.width = options.minWidth;
+		}
+
+		// Reset wrapper sizing
+		// determine the height of all the non-content elements
+		nonContentHeight = this.uiDialog.css( {
+			height: "auto",
+			width: options.width
+		} )
+			.outerHeight();
+		minContentHeight = Math.max( 0, options.minHeight - nonContentHeight );
+		maxContentHeight = typeof options.maxHeight === "number" ?
+			Math.max( 0, options.maxHeight - nonContentHeight ) :
+			"none";
+
+		if ( options.height === "auto" ) {
+			this.element.css( {
+				minHeight: minContentHeight,
+				maxHeight: maxContentHeight,
+				height: "auto"
+			} );
+		} else {
+			this.element.height( Math.max( 0, options.height - nonContentHeight ) );
+		}
+
+		if ( this.uiDialog.is( ":data(ui-resizable)" ) ) {
+			this.uiDialog.resizable( "option", "minHeight", this._minHeight() );
+		}
+	},
+
+	_blockFrames: function() {
+		this.iframeBlocks = this.document.find( "iframe" ).map( function() {
+			var iframe = $( this );
+
+			return $( "<div>" )
+				.css( {
+					position: "absolute",
+					width: iframe.outerWidth(),
+					height: iframe.outerHeight()
+				} )
+				.appendTo( iframe.parent() )
+				.offset( iframe.offset() )[ 0 ];
+		} );
+	},
+
+	_unblockFrames: function() {
+		if ( this.iframeBlocks ) {
+			this.iframeBlocks.remove();
+			delete this.iframeBlocks;
+		}
+	},
+
+	_allowInteraction: function( event ) {
+		if ( $( event.target ).closest( ".ui-dialog" ).length ) {
+			return true;
+		}
+
+		// TODO: Remove hack when datepicker implements
+		// the .ui-front logic (#8989)
+		return !!$( event.target ).closest( ".ui-datepicker" ).length;
+	},
+
+	_createOverlay: function() {
+		if ( !this.options.modal ) {
+			return;
+		}
+
+		// We use a delay in case the overlay is created from an
+		// event that we're going to be cancelling (#2804)
+		var isOpening = true;
+		this._delay( function() {
+			isOpening = false;
+		} );
+
+		if ( !this.document.data( "ui-dialog-overlays" ) ) {
+
+			// Prevent use of anchors and inputs
+			// Using _on() for an event handler shared across many instances is
+			// safe because the dialogs stack and must be closed in reverse order
+			this._on( this.document, {
+				focusin: function( event ) {
+					if ( isOpening ) {
+						return;
+					}
+
+					if ( !this._allowInteraction( event ) ) {
+						event.preventDefault();
+						this._trackingInstances()[ 0 ]._focusTabbable();
+					}
+				}
+			} );
+		}
+
+		this.overlay = $( "<div>" )
+			.appendTo( this._appendTo() );
+
+		this._addClass( this.overlay, null, "ui-widget-overlay ui-front" );
+		this._on( this.overlay, {
+			mousedown: "_keepFocus"
+		} );
+		this.document.data( "ui-dialog-overlays",
+			( this.document.data( "ui-dialog-overlays" ) || 0 ) + 1 );
+	},
+
+	_destroyOverlay: function() {
+		if ( !this.options.modal ) {
+			return;
+		}
+
+		if ( this.overlay ) {
+			var overlays = this.document.data( "ui-dialog-overlays" ) - 1;
+
+			if ( !overlays ) {
+				this._off( this.document, "focusin" );
+				this.document.removeData( "ui-dialog-overlays" );
+			} else {
+				this.document.data( "ui-dialog-overlays", overlays );
+			}
+
+			this.overlay.remove();
+			this.overlay = null;
+		}
+	}
+} );
+
+// DEPRECATED
+// TODO: switch return back to widget declaration at top of file when this is removed
+if ( $.uiBackCompat !== false ) {
+
+	// Backcompat for dialogClass option
+	$.widget( "ui.dialog", $.ui.dialog, {
+		options: {
+			dialogClass: ""
+		},
+		_createWrapper: function() {
+			this._super();
+			this.uiDialog.addClass( this.options.dialogClass );
+		},
+		_setOption: function( key, value ) {
+			if ( key === "dialogClass" ) {
+				this.uiDialog
+					.removeClass( this.options.dialogClass )
+					.addClass( value );
+			}
+			this._superApply( arguments );
+		}
+	} );
+}
+
+return $.ui.dialog;
+
+} ) );
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Droppable 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Droppable
+//>>group: Interactions
+//>>description: Enables drop targets for draggable elements.
+//>>docs: http://api.jqueryui.com/droppable/
+//>>demos: http://jqueryui.com/droppable/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+			__webpack_require__(0),
+			__webpack_require__(4),
+			__webpack_require__(3),
+			__webpack_require__(1),
+			__webpack_require__(2)
+		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}( function( $ ) {
+
+$.widget( "ui.droppable", {
+	version: "1.12.1",
+	widgetEventPrefix: "drop",
+	options: {
+		accept: "*",
+		addClasses: true,
+		greedy: false,
+		scope: "default",
+		tolerance: "intersect",
+
+		// Callbacks
+		activate: null,
+		deactivate: null,
+		drop: null,
+		out: null,
+		over: null
+	},
+	_create: function() {
+
+		var proportions,
+			o = this.options,
+			accept = o.accept;
+
+		this.isover = false;
+		this.isout = true;
+
+		this.accept = $.isFunction( accept ) ? accept : function( d ) {
+			return d.is( accept );
+		};
+
+		this.proportions = function( /* valueToWrite */ ) {
+			if ( arguments.length ) {
+
+				// Store the droppable's proportions
+				proportions = arguments[ 0 ];
+			} else {
+
+				// Retrieve or derive the droppable's proportions
+				return proportions ?
+					proportions :
+					proportions = {
+						width: this.element[ 0 ].offsetWidth,
+						height: this.element[ 0 ].offsetHeight
+					};
+			}
+		};
+
+		this._addToManager( o.scope );
+
+		o.addClasses && this._addClass( "ui-droppable" );
+
+	},
+
+	_addToManager: function( scope ) {
+
+		// Add the reference and positions to the manager
+		$.ui.ddmanager.droppables[ scope ] = $.ui.ddmanager.droppables[ scope ] || [];
+		$.ui.ddmanager.droppables[ scope ].push( this );
+	},
+
+	_splice: function( drop ) {
+		var i = 0;
+		for ( ; i < drop.length; i++ ) {
+			if ( drop[ i ] === this ) {
+				drop.splice( i, 1 );
+			}
+		}
+	},
+
+	_destroy: function() {
+		var drop = $.ui.ddmanager.droppables[ this.options.scope ];
+
+		this._splice( drop );
+	},
+
+	_setOption: function( key, value ) {
+
+		if ( key === "accept" ) {
+			this.accept = $.isFunction( value ) ? value : function( d ) {
+				return d.is( value );
+			};
+		} else if ( key === "scope" ) {
+			var drop = $.ui.ddmanager.droppables[ this.options.scope ];
+
+			this._splice( drop );
+			this._addToManager( value );
+		}
+
+		this._super( key, value );
+	},
+
+	_activate: function( event ) {
+		var draggable = $.ui.ddmanager.current;
+
+		this._addActiveClass();
+		if ( draggable ) {
+			this._trigger( "activate", event, this.ui( draggable ) );
+		}
+	},
+
+	_deactivate: function( event ) {
+		var draggable = $.ui.ddmanager.current;
+
+		this._removeActiveClass();
+		if ( draggable ) {
+			this._trigger( "deactivate", event, this.ui( draggable ) );
+		}
+	},
+
+	_over: function( event ) {
+
+		var draggable = $.ui.ddmanager.current;
+
+		// Bail if draggable and droppable are same element
+		if ( !draggable || ( draggable.currentItem ||
+				draggable.element )[ 0 ] === this.element[ 0 ] ) {
+			return;
+		}
+
+		if ( this.accept.call( this.element[ 0 ], ( draggable.currentItem ||
+				draggable.element ) ) ) {
+			this._addHoverClass();
+			this._trigger( "over", event, this.ui( draggable ) );
+		}
+
+	},
+
+	_out: function( event ) {
+
+		var draggable = $.ui.ddmanager.current;
+
+		// Bail if draggable and droppable are same element
+		if ( !draggable || ( draggable.currentItem ||
+				draggable.element )[ 0 ] === this.element[ 0 ] ) {
+			return;
+		}
+
+		if ( this.accept.call( this.element[ 0 ], ( draggable.currentItem ||
+				draggable.element ) ) ) {
+			this._removeHoverClass();
+			this._trigger( "out", event, this.ui( draggable ) );
+		}
+
+	},
+
+	_drop: function( event, custom ) {
+
+		var draggable = custom || $.ui.ddmanager.current,
+			childrenIntersection = false;
+
+		// Bail if draggable and droppable are same element
+		if ( !draggable || ( draggable.currentItem ||
+				draggable.element )[ 0 ] === this.element[ 0 ] ) {
+			return false;
+		}
+
+		this.element
+			.find( ":data(ui-droppable)" )
+			.not( ".ui-draggable-dragging" )
+			.each( function() {
+				var inst = $( this ).droppable( "instance" );
+				if (
+					inst.options.greedy &&
+					!inst.options.disabled &&
+					inst.options.scope === draggable.options.scope &&
+					inst.accept.call(
+						inst.element[ 0 ], ( draggable.currentItem || draggable.element )
+					) &&
+					intersect(
+						draggable,
+						$.extend( inst, { offset: inst.element.offset() } ),
+						inst.options.tolerance, event
+					)
+				) {
+					childrenIntersection = true;
+					return false; }
+			} );
+		if ( childrenIntersection ) {
+			return false;
+		}
+
+		if ( this.accept.call( this.element[ 0 ],
+				( draggable.currentItem || draggable.element ) ) ) {
+			this._removeActiveClass();
+			this._removeHoverClass();
+
+			this._trigger( "drop", event, this.ui( draggable ) );
+			return this.element;
+		}
+
+		return false;
+
+	},
+
+	ui: function( c ) {
+		return {
+			draggable: ( c.currentItem || c.element ),
+			helper: c.helper,
+			position: c.position,
+			offset: c.positionAbs
+		};
+	},
+
+	// Extension points just to make backcompat sane and avoid duplicating logic
+	// TODO: Remove in 1.13 along with call to it below
+	_addHoverClass: function() {
+		this._addClass( "ui-droppable-hover" );
+	},
+
+	_removeHoverClass: function() {
+		this._removeClass( "ui-droppable-hover" );
+	},
+
+	_addActiveClass: function() {
+		this._addClass( "ui-droppable-active" );
+	},
+
+	_removeActiveClass: function() {
+		this._removeClass( "ui-droppable-active" );
+	}
+} );
+
+var intersect = $.ui.intersect = ( function() {
+	function isOverAxis( x, reference, size ) {
+		return ( x >= reference ) && ( x < ( reference + size ) );
+	}
+
+	return function( draggable, droppable, toleranceMode, event ) {
+
+		if ( !droppable.offset ) {
+			return false;
+		}
+
+		var x1 = ( draggable.positionAbs ||
+				draggable.position.absolute ).left + draggable.margins.left,
+			y1 = ( draggable.positionAbs ||
+				draggable.position.absolute ).top + draggable.margins.top,
+			x2 = x1 + draggable.helperProportions.width,
+			y2 = y1 + draggable.helperProportions.height,
+			l = droppable.offset.left,
+			t = droppable.offset.top,
+			r = l + droppable.proportions().width,
+			b = t + droppable.proportions().height;
+
+		switch ( toleranceMode ) {
+		case "fit":
+			return ( l <= x1 && x2 <= r && t <= y1 && y2 <= b );
+		case "intersect":
+			return ( l < x1 + ( draggable.helperProportions.width / 2 ) && // Right Half
+				x2 - ( draggable.helperProportions.width / 2 ) < r && // Left Half
+				t < y1 + ( draggable.helperProportions.height / 2 ) && // Bottom Half
+				y2 - ( draggable.helperProportions.height / 2 ) < b ); // Top Half
+		case "pointer":
+			return isOverAxis( event.pageY, t, droppable.proportions().height ) &&
+				isOverAxis( event.pageX, l, droppable.proportions().width );
+		case "touch":
+			return (
+				( y1 >= t && y1 <= b ) || // Top edge touching
+				( y2 >= t && y2 <= b ) || // Bottom edge touching
+				( y1 < t && y2 > b ) // Surrounded vertically
+			) && (
+				( x1 >= l && x1 <= r ) || // Left edge touching
+				( x2 >= l && x2 <= r ) || // Right edge touching
+				( x1 < l && x2 > r ) // Surrounded horizontally
+			);
+		default:
+			return false;
+		}
+	};
+} )();
+
+/*
+	This manager tracks offsets of draggables and droppables
+*/
+$.ui.ddmanager = {
+	current: null,
+	droppables: { "default": [] },
+	prepareOffsets: function( t, event ) {
+
+		var i, j,
+			m = $.ui.ddmanager.droppables[ t.options.scope ] || [],
+			type = event ? event.type : null, // workaround for #2317
+			list = ( t.currentItem || t.element ).find( ":data(ui-droppable)" ).addBack();
+
+		droppablesLoop: for ( i = 0; i < m.length; i++ ) {
+
+			// No disabled and non-accepted
+			if ( m[ i ].options.disabled || ( t && !m[ i ].accept.call( m[ i ].element[ 0 ],
+					( t.currentItem || t.element ) ) ) ) {
+				continue;
+			}
+
+			// Filter out elements in the current dragged item
+			for ( j = 0; j < list.length; j++ ) {
+				if ( list[ j ] === m[ i ].element[ 0 ] ) {
+					m[ i ].proportions().height = 0;
+					continue droppablesLoop;
+				}
+			}
+
+			m[ i ].visible = m[ i ].element.css( "display" ) !== "none";
+			if ( !m[ i ].visible ) {
+				continue;
+			}
+
+			// Activate the droppable if used directly from draggables
+			if ( type === "mousedown" ) {
+				m[ i ]._activate.call( m[ i ], event );
+			}
+
+			m[ i ].offset = m[ i ].element.offset();
+			m[ i ].proportions( {
+				width: m[ i ].element[ 0 ].offsetWidth,
+				height: m[ i ].element[ 0 ].offsetHeight
+			} );
+
+		}
+
+	},
+	drop: function( draggable, event ) {
+
+		var dropped = false;
+
+		// Create a copy of the droppables in case the list changes during the drop (#9116)
+		$.each( ( $.ui.ddmanager.droppables[ draggable.options.scope ] || [] ).slice(), function() {
+
+			if ( !this.options ) {
+				return;
+			}
+			if ( !this.options.disabled && this.visible &&
+					intersect( draggable, this, this.options.tolerance, event ) ) {
+				dropped = this._drop.call( this, event ) || dropped;
+			}
+
+			if ( !this.options.disabled && this.visible && this.accept.call( this.element[ 0 ],
+					( draggable.currentItem || draggable.element ) ) ) {
+				this.isout = true;
+				this.isover = false;
+				this._deactivate.call( this, event );
+			}
+
+		} );
+		return dropped;
+
+	},
+	dragStart: function( draggable, event ) {
+
+		// Listen for scrolling so that if the dragging causes scrolling the position of the
+		// droppables can be recalculated (see #5003)
+		draggable.element.parentsUntil( "body" ).on( "scroll.droppable", function() {
+			if ( !draggable.options.refreshPositions ) {
+				$.ui.ddmanager.prepareOffsets( draggable, event );
+			}
+		} );
+	},
+	drag: function( draggable, event ) {
+
+		// If you have a highly dynamic page, you might try this option. It renders positions
+		// every time you move the mouse.
+		if ( draggable.options.refreshPositions ) {
+			$.ui.ddmanager.prepareOffsets( draggable, event );
+		}
+
+		// Run through all droppables and check their positions based on specific tolerance options
+		$.each( $.ui.ddmanager.droppables[ draggable.options.scope ] || [], function() {
+
+			if ( this.options.disabled || this.greedyChild || !this.visible ) {
+				return;
+			}
+
+			var parentInstance, scope, parent,
+				intersects = intersect( draggable, this, this.options.tolerance, event ),
+				c = !intersects && this.isover ?
+					"isout" :
+					( intersects && !this.isover ? "isover" : null );
+			if ( !c ) {
+				return;
+			}
+
+			if ( this.options.greedy ) {
+
+				// find droppable parents with same scope
+				scope = this.options.scope;
+				parent = this.element.parents( ":data(ui-droppable)" ).filter( function() {
+					return $( this ).droppable( "instance" ).options.scope === scope;
+				} );
+
+				if ( parent.length ) {
+					parentInstance = $( parent[ 0 ] ).droppable( "instance" );
+					parentInstance.greedyChild = ( c === "isover" );
+				}
+			}
+
+			// We just moved into a greedy child
+			if ( parentInstance && c === "isover" ) {
+				parentInstance.isover = false;
+				parentInstance.isout = true;
+				parentInstance._out.call( parentInstance, event );
+			}
+
+			this[ c ] = true;
+			this[ c === "isout" ? "isover" : "isout" ] = false;
+			this[ c === "isover" ? "_over" : "_out" ].call( this, event );
+
+			// We just moved out of a greedy child
+			if ( parentInstance && c === "isout" ) {
+				parentInstance.isout = false;
+				parentInstance.isover = true;
+				parentInstance._over.call( parentInstance, event );
+			}
+		} );
+
+	},
+	dragStop: function( draggable, event ) {
+		draggable.element.parentsUntil( "body" ).off( "scroll.droppable" );
+
+		// Call prepareOffsets one final time since IE does not fire return scroll events when
+		// overflow was caused by drag (see #5003)
+		if ( !draggable.options.refreshPositions ) {
+			$.ui.ddmanager.prepareOffsets( draggable, event );
+		}
+	}
+};
+
+// DEPRECATED
+// TODO: switch return back to widget declaration at top of file when this is removed
+if ( $.uiBackCompat !== false ) {
+
+	// Backcompat for activeClass and hoverClass options
+	$.widget( "ui.droppable", $.ui.droppable, {
+		options: {
+			hoverClass: false,
+			activeClass: false
+		},
+		_addActiveClass: function() {
+			this._super();
+			if ( this.options.activeClass ) {
+				this.element.addClass( this.options.activeClass );
+			}
+		},
+		_removeActiveClass: function() {
+			this._super();
+			if ( this.options.activeClass ) {
+				this.element.removeClass( this.options.activeClass );
+			}
+		},
+		_addHoverClass: function() {
+			this._super();
+			if ( this.options.hoverClass ) {
+				this.element.addClass( this.options.hoverClass );
+			}
+		},
+		_removeHoverClass: function() {
+			this._super();
+			if ( this.options.hoverClass ) {
+				this.element.removeClass( this.options.hoverClass );
+			}
+		}
+	} );
+}
+
+return $.ui.droppable;
+
+} ) );
+
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -3441,9 +4652,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 			__webpack_require__(0),
 			__webpack_require__(3),
-			__webpack_require__(5),
 			__webpack_require__(6),
-			__webpack_require__(8),
+			__webpack_require__(9),
+			__webpack_require__(14),
 			__webpack_require__(1),
 			__webpack_require__(2)
 		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
@@ -4978,7 +6189,7 @@ return $.widget( "ui.sortable", $.ui.mouse, {
 
 
 /***/ }),
-/* 16 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -5033,7 +6244,93 @@ return $.fn.extend( {
 
 
 /***/ }),
-/* 17 */
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Form Reset Mixin 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Form Reset Mixin
+//>>group: Core
+//>>description: Refresh input widgets when their form is reset
+//>>docs: http://api.jqueryui.com/form-reset-mixin/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+			__webpack_require__(0),
+			__webpack_require__(25),
+			__webpack_require__(1)
+		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}( function( $ ) {
+
+return $.ui.formResetMixin = {
+	_formResetHandler: function() {
+		var form = $( this );
+
+		// Wait for the form reset to actually happen before refreshing
+		setTimeout( function() {
+			var instances = form.data( "ui-form-reset-instances" );
+			$.each( instances, function() {
+				this.refresh();
+			} );
+		} );
+	},
+
+	_bindFormResetHandler: function() {
+		this.form = this.element.form();
+		if ( !this.form.length ) {
+			return;
+		}
+
+		var instances = this.form.data( "ui-form-reset-instances" ) || [];
+		if ( !instances.length ) {
+
+			// We don't use _on() here because we use a single event handler per form
+			this.form.on( "reset.ui-form-reset", this._formResetHandler );
+		}
+		instances.push( this );
+		this.form.data( "ui-form-reset-instances", instances );
+	},
+
+	_unbindFormResetHandler: function() {
+		if ( !this.form.length ) {
+			return;
+		}
+
+		var instances = this.form.data( "ui-form-reset-instances" );
+		instances.splice( $.inArray( this, instances ), 1 );
+		if ( instances.length ) {
+			this.form.data( "ui-form-reset-instances", instances );
+		} else {
+			this.form
+				.removeData( "ui-form-reset-instances" )
+				.off( "reset.ui-form-reset" );
+		}
+	}
+};
+
+} ) );
+
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
@@ -5050,42 +6347,658 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		factory( jQuery );
 	}
 } ( function( $ ) {
-return $.ui.safeActiveElement = function( document ) {
-	var activeElement;
 
-	// Support: IE 9 only
-	// IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
-	try {
-		activeElement = document.activeElement;
-	} catch ( error ) {
-		activeElement = document.body;
-	}
-
-	// Support: IE 9 - 11 only
-	// IE may return null instead of an element
-	// Interestingly, this only seems to occur when NOT in an iframe
-	if ( !activeElement ) {
-		activeElement = document.body;
-	}
-
-	// Support: IE 11 only
-	// IE11 returns a seemingly empty object in some cases when accessing
-	// document.activeElement from an <iframe>
-	if ( !activeElement.nodeName ) {
-		activeElement = document.body;
-	}
-
-	return activeElement;
+// Support: IE8 Only
+// IE8 does not support the form attribute and when it is supplied. It overwrites the form prop
+// with a string, so we need to find the proper form.
+return $.fn.form = function() {
+	return typeof this[ 0 ].form === "string" ? this.closest( "form" ) : $( this[ 0 ].form );
 };
 
 } ) );
 
 
 /***/ }),
-/* 18 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Labels 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: labels
+//>>group: Core
+//>>description: Find all the labels associated with a given input
+//>>docs: http://api.jqueryui.com/labels/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1), __webpack_require__(7) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+
+return $.fn.labels = function() {
+	var ancestor, selector, id, labels, ancestors;
+
+	// Check control.labels first
+	if ( this[ 0 ].labels && this[ 0 ].labels.length ) {
+		return this.pushStack( this[ 0 ].labels );
+	}
+
+	// Support: IE <= 11, FF <= 37, Android <= 2.3 only
+	// Above browsers do not support control.labels. Everything below is to support them
+	// as well as document fragments. control.labels does not work on document fragments
+	labels = this.eq( 0 ).parents( "label" );
+
+	// Look for the label based on the id
+	id = this.attr( "id" );
+	if ( id ) {
+
+		// We don't search against the document in case the element
+		// is disconnected from the DOM
+		ancestor = this.eq( 0 ).parents().last();
+
+		// Get a full set of top level ancestors
+		ancestors = ancestor.add( ancestor.length ? ancestor.siblings() : this.siblings() );
+
+		// Create a selector for the label based on the id
+		selector = "label[for='" + $.ui.escapeSelector( id ) + "']";
+
+		labels = labels.add( ancestors.find( selector ).addBack( selector ) );
+
+	}
+
+	// Return whatever we have found for labels
+	return this.pushStack( labels );
+};
+
+} ) );
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Position 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/position/
+ */
+
+//>>label: Position
+//>>group: Core
+//>>description: Positions elements relative to other elements.
+//>>docs: http://api.jqueryui.com/position/
+//>>demos: http://jqueryui.com/position/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}( function( $ ) {
+( function() {
+var cachedScrollbarWidth,
+	max = Math.max,
+	abs = Math.abs,
+	rhorizontal = /left|center|right/,
+	rvertical = /top|center|bottom/,
+	roffset = /[\+\-]\d+(\.[\d]+)?%?/,
+	rposition = /^\w+/,
+	rpercent = /%$/,
+	_position = $.fn.position;
+
+function getOffsets( offsets, width, height ) {
+	return [
+		parseFloat( offsets[ 0 ] ) * ( rpercent.test( offsets[ 0 ] ) ? width / 100 : 1 ),
+		parseFloat( offsets[ 1 ] ) * ( rpercent.test( offsets[ 1 ] ) ? height / 100 : 1 )
+	];
+}
+
+function parseCss( element, property ) {
+	return parseInt( $.css( element, property ), 10 ) || 0;
+}
+
+function getDimensions( elem ) {
+	var raw = elem[ 0 ];
+	if ( raw.nodeType === 9 ) {
+		return {
+			width: elem.width(),
+			height: elem.height(),
+			offset: { top: 0, left: 0 }
+		};
+	}
+	if ( $.isWindow( raw ) ) {
+		return {
+			width: elem.width(),
+			height: elem.height(),
+			offset: { top: elem.scrollTop(), left: elem.scrollLeft() }
+		};
+	}
+	if ( raw.preventDefault ) {
+		return {
+			width: 0,
+			height: 0,
+			offset: { top: raw.pageY, left: raw.pageX }
+		};
+	}
+	return {
+		width: elem.outerWidth(),
+		height: elem.outerHeight(),
+		offset: elem.offset()
+	};
+}
+
+$.position = {
+	scrollbarWidth: function() {
+		if ( cachedScrollbarWidth !== undefined ) {
+			return cachedScrollbarWidth;
+		}
+		var w1, w2,
+			div = $( "<div " +
+				"style='display:block;position:absolute;width:50px;height:50px;overflow:hidden;'>" +
+				"<div style='height:100px;width:auto;'></div></div>" ),
+			innerDiv = div.children()[ 0 ];
+
+		$( "body" ).append( div );
+		w1 = innerDiv.offsetWidth;
+		div.css( "overflow", "scroll" );
+
+		w2 = innerDiv.offsetWidth;
+
+		if ( w1 === w2 ) {
+			w2 = div[ 0 ].clientWidth;
+		}
+
+		div.remove();
+
+		return ( cachedScrollbarWidth = w1 - w2 );
+	},
+	getScrollInfo: function( within ) {
+		var overflowX = within.isWindow || within.isDocument ? "" :
+				within.element.css( "overflow-x" ),
+			overflowY = within.isWindow || within.isDocument ? "" :
+				within.element.css( "overflow-y" ),
+			hasOverflowX = overflowX === "scroll" ||
+				( overflowX === "auto" && within.width < within.element[ 0 ].scrollWidth ),
+			hasOverflowY = overflowY === "scroll" ||
+				( overflowY === "auto" && within.height < within.element[ 0 ].scrollHeight );
+		return {
+			width: hasOverflowY ? $.position.scrollbarWidth() : 0,
+			height: hasOverflowX ? $.position.scrollbarWidth() : 0
+		};
+	},
+	getWithinInfo: function( element ) {
+		var withinElement = $( element || window ),
+			isWindow = $.isWindow( withinElement[ 0 ] ),
+			isDocument = !!withinElement[ 0 ] && withinElement[ 0 ].nodeType === 9,
+			hasOffset = !isWindow && !isDocument;
+		return {
+			element: withinElement,
+			isWindow: isWindow,
+			isDocument: isDocument,
+			offset: hasOffset ? $( element ).offset() : { left: 0, top: 0 },
+			scrollLeft: withinElement.scrollLeft(),
+			scrollTop: withinElement.scrollTop(),
+			width: withinElement.outerWidth(),
+			height: withinElement.outerHeight()
+		};
+	}
+};
+
+$.fn.position = function( options ) {
+	if ( !options || !options.of ) {
+		return _position.apply( this, arguments );
+	}
+
+	// Make a copy, we don't want to modify arguments
+	options = $.extend( {}, options );
+
+	var atOffset, targetWidth, targetHeight, targetOffset, basePosition, dimensions,
+		target = $( options.of ),
+		within = $.position.getWithinInfo( options.within ),
+		scrollInfo = $.position.getScrollInfo( within ),
+		collision = ( options.collision || "flip" ).split( " " ),
+		offsets = {};
+
+	dimensions = getDimensions( target );
+	if ( target[ 0 ].preventDefault ) {
+
+		// Force left top to allow flipping
+		options.at = "left top";
+	}
+	targetWidth = dimensions.width;
+	targetHeight = dimensions.height;
+	targetOffset = dimensions.offset;
+
+	// Clone to reuse original targetOffset later
+	basePosition = $.extend( {}, targetOffset );
+
+	// Force my and at to have valid horizontal and vertical positions
+	// if a value is missing or invalid, it will be converted to center
+	$.each( [ "my", "at" ], function() {
+		var pos = ( options[ this ] || "" ).split( " " ),
+			horizontalOffset,
+			verticalOffset;
+
+		if ( pos.length === 1 ) {
+			pos = rhorizontal.test( pos[ 0 ] ) ?
+				pos.concat( [ "center" ] ) :
+				rvertical.test( pos[ 0 ] ) ?
+					[ "center" ].concat( pos ) :
+					[ "center", "center" ];
+		}
+		pos[ 0 ] = rhorizontal.test( pos[ 0 ] ) ? pos[ 0 ] : "center";
+		pos[ 1 ] = rvertical.test( pos[ 1 ] ) ? pos[ 1 ] : "center";
+
+		// Calculate offsets
+		horizontalOffset = roffset.exec( pos[ 0 ] );
+		verticalOffset = roffset.exec( pos[ 1 ] );
+		offsets[ this ] = [
+			horizontalOffset ? horizontalOffset[ 0 ] : 0,
+			verticalOffset ? verticalOffset[ 0 ] : 0
+		];
+
+		// Reduce to just the positions without the offsets
+		options[ this ] = [
+			rposition.exec( pos[ 0 ] )[ 0 ],
+			rposition.exec( pos[ 1 ] )[ 0 ]
+		];
+	} );
+
+	// Normalize collision option
+	if ( collision.length === 1 ) {
+		collision[ 1 ] = collision[ 0 ];
+	}
+
+	if ( options.at[ 0 ] === "right" ) {
+		basePosition.left += targetWidth;
+	} else if ( options.at[ 0 ] === "center" ) {
+		basePosition.left += targetWidth / 2;
+	}
+
+	if ( options.at[ 1 ] === "bottom" ) {
+		basePosition.top += targetHeight;
+	} else if ( options.at[ 1 ] === "center" ) {
+		basePosition.top += targetHeight / 2;
+	}
+
+	atOffset = getOffsets( offsets.at, targetWidth, targetHeight );
+	basePosition.left += atOffset[ 0 ];
+	basePosition.top += atOffset[ 1 ];
+
+	return this.each( function() {
+		var collisionPosition, using,
+			elem = $( this ),
+			elemWidth = elem.outerWidth(),
+			elemHeight = elem.outerHeight(),
+			marginLeft = parseCss( this, "marginLeft" ),
+			marginTop = parseCss( this, "marginTop" ),
+			collisionWidth = elemWidth + marginLeft + parseCss( this, "marginRight" ) +
+				scrollInfo.width,
+			collisionHeight = elemHeight + marginTop + parseCss( this, "marginBottom" ) +
+				scrollInfo.height,
+			position = $.extend( {}, basePosition ),
+			myOffset = getOffsets( offsets.my, elem.outerWidth(), elem.outerHeight() );
+
+		if ( options.my[ 0 ] === "right" ) {
+			position.left -= elemWidth;
+		} else if ( options.my[ 0 ] === "center" ) {
+			position.left -= elemWidth / 2;
+		}
+
+		if ( options.my[ 1 ] === "bottom" ) {
+			position.top -= elemHeight;
+		} else if ( options.my[ 1 ] === "center" ) {
+			position.top -= elemHeight / 2;
+		}
+
+		position.left += myOffset[ 0 ];
+		position.top += myOffset[ 1 ];
+
+		collisionPosition = {
+			marginLeft: marginLeft,
+			marginTop: marginTop
+		};
+
+		$.each( [ "left", "top" ], function( i, dir ) {
+			if ( $.ui.position[ collision[ i ] ] ) {
+				$.ui.position[ collision[ i ] ][ dir ]( position, {
+					targetWidth: targetWidth,
+					targetHeight: targetHeight,
+					elemWidth: elemWidth,
+					elemHeight: elemHeight,
+					collisionPosition: collisionPosition,
+					collisionWidth: collisionWidth,
+					collisionHeight: collisionHeight,
+					offset: [ atOffset[ 0 ] + myOffset[ 0 ], atOffset [ 1 ] + myOffset[ 1 ] ],
+					my: options.my,
+					at: options.at,
+					within: within,
+					elem: elem
+				} );
+			}
+		} );
+
+		if ( options.using ) {
+
+			// Adds feedback as second argument to using callback, if present
+			using = function( props ) {
+				var left = targetOffset.left - position.left,
+					right = left + targetWidth - elemWidth,
+					top = targetOffset.top - position.top,
+					bottom = top + targetHeight - elemHeight,
+					feedback = {
+						target: {
+							element: target,
+							left: targetOffset.left,
+							top: targetOffset.top,
+							width: targetWidth,
+							height: targetHeight
+						},
+						element: {
+							element: elem,
+							left: position.left,
+							top: position.top,
+							width: elemWidth,
+							height: elemHeight
+						},
+						horizontal: right < 0 ? "left" : left > 0 ? "right" : "center",
+						vertical: bottom < 0 ? "top" : top > 0 ? "bottom" : "middle"
+					};
+				if ( targetWidth < elemWidth && abs( left + right ) < targetWidth ) {
+					feedback.horizontal = "center";
+				}
+				if ( targetHeight < elemHeight && abs( top + bottom ) < targetHeight ) {
+					feedback.vertical = "middle";
+				}
+				if ( max( abs( left ), abs( right ) ) > max( abs( top ), abs( bottom ) ) ) {
+					feedback.important = "horizontal";
+				} else {
+					feedback.important = "vertical";
+				}
+				options.using.call( this, props, feedback );
+			};
+		}
+
+		elem.offset( $.extend( position, { using: using } ) );
+	} );
+};
+
+$.ui.position = {
+	fit: {
+		left: function( position, data ) {
+			var within = data.within,
+				withinOffset = within.isWindow ? within.scrollLeft : within.offset.left,
+				outerWidth = within.width,
+				collisionPosLeft = position.left - data.collisionPosition.marginLeft,
+				overLeft = withinOffset - collisionPosLeft,
+				overRight = collisionPosLeft + data.collisionWidth - outerWidth - withinOffset,
+				newOverRight;
+
+			// Element is wider than within
+			if ( data.collisionWidth > outerWidth ) {
+
+				// Element is initially over the left side of within
+				if ( overLeft > 0 && overRight <= 0 ) {
+					newOverRight = position.left + overLeft + data.collisionWidth - outerWidth -
+						withinOffset;
+					position.left += overLeft - newOverRight;
+
+				// Element is initially over right side of within
+				} else if ( overRight > 0 && overLeft <= 0 ) {
+					position.left = withinOffset;
+
+				// Element is initially over both left and right sides of within
+				} else {
+					if ( overLeft > overRight ) {
+						position.left = withinOffset + outerWidth - data.collisionWidth;
+					} else {
+						position.left = withinOffset;
+					}
+				}
+
+			// Too far left -> align with left edge
+			} else if ( overLeft > 0 ) {
+				position.left += overLeft;
+
+			// Too far right -> align with right edge
+			} else if ( overRight > 0 ) {
+				position.left -= overRight;
+
+			// Adjust based on position and margin
+			} else {
+				position.left = max( position.left - collisionPosLeft, position.left );
+			}
+		},
+		top: function( position, data ) {
+			var within = data.within,
+				withinOffset = within.isWindow ? within.scrollTop : within.offset.top,
+				outerHeight = data.within.height,
+				collisionPosTop = position.top - data.collisionPosition.marginTop,
+				overTop = withinOffset - collisionPosTop,
+				overBottom = collisionPosTop + data.collisionHeight - outerHeight - withinOffset,
+				newOverBottom;
+
+			// Element is taller than within
+			if ( data.collisionHeight > outerHeight ) {
+
+				// Element is initially over the top of within
+				if ( overTop > 0 && overBottom <= 0 ) {
+					newOverBottom = position.top + overTop + data.collisionHeight - outerHeight -
+						withinOffset;
+					position.top += overTop - newOverBottom;
+
+				// Element is initially over bottom of within
+				} else if ( overBottom > 0 && overTop <= 0 ) {
+					position.top = withinOffset;
+
+				// Element is initially over both top and bottom of within
+				} else {
+					if ( overTop > overBottom ) {
+						position.top = withinOffset + outerHeight - data.collisionHeight;
+					} else {
+						position.top = withinOffset;
+					}
+				}
+
+			// Too far up -> align with top
+			} else if ( overTop > 0 ) {
+				position.top += overTop;
+
+			// Too far down -> align with bottom edge
+			} else if ( overBottom > 0 ) {
+				position.top -= overBottom;
+
+			// Adjust based on position and margin
+			} else {
+				position.top = max( position.top - collisionPosTop, position.top );
+			}
+		}
+	},
+	flip: {
+		left: function( position, data ) {
+			var within = data.within,
+				withinOffset = within.offset.left + within.scrollLeft,
+				outerWidth = within.width,
+				offsetLeft = within.isWindow ? within.scrollLeft : within.offset.left,
+				collisionPosLeft = position.left - data.collisionPosition.marginLeft,
+				overLeft = collisionPosLeft - offsetLeft,
+				overRight = collisionPosLeft + data.collisionWidth - outerWidth - offsetLeft,
+				myOffset = data.my[ 0 ] === "left" ?
+					-data.elemWidth :
+					data.my[ 0 ] === "right" ?
+						data.elemWidth :
+						0,
+				atOffset = data.at[ 0 ] === "left" ?
+					data.targetWidth :
+					data.at[ 0 ] === "right" ?
+						-data.targetWidth :
+						0,
+				offset = -2 * data.offset[ 0 ],
+				newOverRight,
+				newOverLeft;
+
+			if ( overLeft < 0 ) {
+				newOverRight = position.left + myOffset + atOffset + offset + data.collisionWidth -
+					outerWidth - withinOffset;
+				if ( newOverRight < 0 || newOverRight < abs( overLeft ) ) {
+					position.left += myOffset + atOffset + offset;
+				}
+			} else if ( overRight > 0 ) {
+				newOverLeft = position.left - data.collisionPosition.marginLeft + myOffset +
+					atOffset + offset - offsetLeft;
+				if ( newOverLeft > 0 || abs( newOverLeft ) < overRight ) {
+					position.left += myOffset + atOffset + offset;
+				}
+			}
+		},
+		top: function( position, data ) {
+			var within = data.within,
+				withinOffset = within.offset.top + within.scrollTop,
+				outerHeight = within.height,
+				offsetTop = within.isWindow ? within.scrollTop : within.offset.top,
+				collisionPosTop = position.top - data.collisionPosition.marginTop,
+				overTop = collisionPosTop - offsetTop,
+				overBottom = collisionPosTop + data.collisionHeight - outerHeight - offsetTop,
+				top = data.my[ 1 ] === "top",
+				myOffset = top ?
+					-data.elemHeight :
+					data.my[ 1 ] === "bottom" ?
+						data.elemHeight :
+						0,
+				atOffset = data.at[ 1 ] === "top" ?
+					data.targetHeight :
+					data.at[ 1 ] === "bottom" ?
+						-data.targetHeight :
+						0,
+				offset = -2 * data.offset[ 1 ],
+				newOverTop,
+				newOverBottom;
+			if ( overTop < 0 ) {
+				newOverBottom = position.top + myOffset + atOffset + offset + data.collisionHeight -
+					outerHeight - withinOffset;
+				if ( newOverBottom < 0 || newOverBottom < abs( overTop ) ) {
+					position.top += myOffset + atOffset + offset;
+				}
+			} else if ( overBottom > 0 ) {
+				newOverTop = position.top - data.collisionPosition.marginTop + myOffset + atOffset +
+					offset - offsetTop;
+				if ( newOverTop > 0 || abs( newOverTop ) < overBottom ) {
+					position.top += myOffset + atOffset + offset;
+				}
+			}
+		}
+	},
+	flipfit: {
+		left: function() {
+			$.ui.position.flip.left.apply( this, arguments );
+			$.ui.position.fit.left.apply( this, arguments );
+		},
+		top: function() {
+			$.ui.position.flip.top.apply( this, arguments );
+			$.ui.position.fit.top.apply( this, arguments );
+		}
+	}
+};
+
+} )();
+
+return $.ui.position;
+
+} ) );
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Tabbable 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: :tabbable Selector
+//>>group: Core
+//>>description: Selects elements which can be tabbed to.
+//>>docs: http://api.jqueryui.com/tabbable-selector/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(1), __webpack_require__(8) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+
+return $.extend( $.expr[ ":" ], {
+	tabbable: function( element ) {
+		var tabIndex = $.attr( element, "tabindex" ),
+			hasTabindex = tabIndex != null;
+		return ( !hasTabindex || tabIndex >= 0 ) && $.ui.focusable( element, hasTabindex );
+	}
+} );
+
+} ) );
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Unique ID 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: uniqueId
+//>>group: Core
+//>>description: Functions to generate and remove uniqueId's
+//>>docs: http://api.jqueryui.com/uniqueId/
+
+( function( factory ) {
 	if ( true ) {
 
 		// AMD. Register as an anonymous module.
@@ -5099,20 +7012,1031 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		factory( jQuery );
 	}
 } ( function( $ ) {
-return $.ui.safeBlur = function( element ) {
 
-	// Support: IE9 - 10 only
-	// If the <body> is blurred, IE will switch windows, see #9420
-	if ( element && element.nodeName.toLowerCase() !== "body" ) {
-		$( element ).trigger( "blur" );
+return $.fn.extend( {
+	uniqueId: ( function() {
+		var uuid = 0;
+
+		return function() {
+			return this.each( function() {
+				if ( !this.id ) {
+					this.id = "ui-id-" + ( ++uuid );
+				}
+			} );
+		};
+	} )(),
+
+	removeUniqueId: function() {
+		return this.each( function() {
+			if ( /^ui-id-\d+$/.test( this.id ) ) {
+				$( this ).removeAttr( "id" );
+			}
+		} );
 	}
-};
+} );
 
 } ) );
 
 
 /***/ }),
-/* 19 */
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Button 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Button
+//>>group: Widgets
+//>>description: Enhances a form with themeable buttons.
+//>>docs: http://api.jqueryui.com/button/
+//>>demos: http://jqueryui.com/button/
+//>>css.structure: ../../themes/base/core.css
+//>>css.structure: ../../themes/base/button.css
+//>>css.theme: ../../themes/base/theme.css
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+			__webpack_require__(0),
+
+			// These are only for backcompat
+			// TODO: Remove after 1.12
+			__webpack_require__(32),
+			__webpack_require__(31),
+
+			__webpack_require__(10),
+			__webpack_require__(2)
+		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}( function( $ ) {
+
+$.widget( "ui.button", {
+	version: "1.12.1",
+	defaultElement: "<button>",
+	options: {
+		classes: {
+			"ui-button": "ui-corner-all"
+		},
+		disabled: null,
+		icon: null,
+		iconPosition: "beginning",
+		label: null,
+		showLabel: true
+	},
+
+	_getCreateOptions: function() {
+		var disabled,
+
+			// This is to support cases like in jQuery Mobile where the base widget does have
+			// an implementation of _getCreateOptions
+			options = this._super() || {};
+
+		this.isInput = this.element.is( "input" );
+
+		disabled = this.element[ 0 ].disabled;
+		if ( disabled != null ) {
+			options.disabled = disabled;
+		}
+
+		this.originalLabel = this.isInput ? this.element.val() : this.element.html();
+		if ( this.originalLabel ) {
+			options.label = this.originalLabel;
+		}
+
+		return options;
+	},
+
+	_create: function() {
+		if ( !this.option.showLabel & !this.options.icon ) {
+			this.options.showLabel = true;
+		}
+
+		// We have to check the option again here even though we did in _getCreateOptions,
+		// because null may have been passed on init which would override what was set in
+		// _getCreateOptions
+		if ( this.options.disabled == null ) {
+			this.options.disabled = this.element[ 0 ].disabled || false;
+		}
+
+		this.hasTitle = !!this.element.attr( "title" );
+
+		// Check to see if the label needs to be set or if its already correct
+		if ( this.options.label && this.options.label !== this.originalLabel ) {
+			if ( this.isInput ) {
+				this.element.val( this.options.label );
+			} else {
+				this.element.html( this.options.label );
+			}
+		}
+		this._addClass( "ui-button", "ui-widget" );
+		this._setOption( "disabled", this.options.disabled );
+		this._enhance();
+
+		if ( this.element.is( "a" ) ) {
+			this._on( {
+				"keyup": function( event ) {
+					if ( event.keyCode === $.ui.keyCode.SPACE ) {
+						event.preventDefault();
+
+						// Support: PhantomJS <= 1.9, IE 8 Only
+						// If a native click is available use it so we actually cause navigation
+						// otherwise just trigger a click event
+						if ( this.element[ 0 ].click ) {
+							this.element[ 0 ].click();
+						} else {
+							this.element.trigger( "click" );
+						}
+					}
+				}
+			} );
+		}
+	},
+
+	_enhance: function() {
+		if ( !this.element.is( "button" ) ) {
+			this.element.attr( "role", "button" );
+		}
+
+		if ( this.options.icon ) {
+			this._updateIcon( "icon", this.options.icon );
+			this._updateTooltip();
+		}
+	},
+
+	_updateTooltip: function() {
+		this.title = this.element.attr( "title" );
+
+		if ( !this.options.showLabel && !this.title ) {
+			this.element.attr( "title", this.options.label );
+		}
+	},
+
+	_updateIcon: function( option, value ) {
+		var icon = option !== "iconPosition",
+			position = icon ? this.options.iconPosition : value,
+			displayBlock = position === "top" || position === "bottom";
+
+		// Create icon
+		if ( !this.icon ) {
+			this.icon = $( "<span>" );
+
+			this._addClass( this.icon, "ui-button-icon", "ui-icon" );
+
+			if ( !this.options.showLabel ) {
+				this._addClass( "ui-button-icon-only" );
+			}
+		} else if ( icon ) {
+
+			// If we are updating the icon remove the old icon class
+			this._removeClass( this.icon, null, this.options.icon );
+		}
+
+		// If we are updating the icon add the new icon class
+		if ( icon ) {
+			this._addClass( this.icon, null, value );
+		}
+
+		this._attachIcon( position );
+
+		// If the icon is on top or bottom we need to add the ui-widget-icon-block class and remove
+		// the iconSpace if there is one.
+		if ( displayBlock ) {
+			this._addClass( this.icon, null, "ui-widget-icon-block" );
+			if ( this.iconSpace ) {
+				this.iconSpace.remove();
+			}
+		} else {
+
+			// Position is beginning or end so remove the ui-widget-icon-block class and add the
+			// space if it does not exist
+			if ( !this.iconSpace ) {
+				this.iconSpace = $( "<span> </span>" );
+				this._addClass( this.iconSpace, "ui-button-icon-space" );
+			}
+			this._removeClass( this.icon, null, "ui-wiget-icon-block" );
+			this._attachIconSpace( position );
+		}
+	},
+
+	_destroy: function() {
+		this.element.removeAttr( "role" );
+
+		if ( this.icon ) {
+			this.icon.remove();
+		}
+		if ( this.iconSpace ) {
+			this.iconSpace.remove();
+		}
+		if ( !this.hasTitle ) {
+			this.element.removeAttr( "title" );
+		}
+	},
+
+	_attachIconSpace: function( iconPosition ) {
+		this.icon[ /^(?:end|bottom)/.test( iconPosition ) ? "before" : "after" ]( this.iconSpace );
+	},
+
+	_attachIcon: function( iconPosition ) {
+		this.element[ /^(?:end|bottom)/.test( iconPosition ) ? "append" : "prepend" ]( this.icon );
+	},
+
+	_setOptions: function( options ) {
+		var newShowLabel = options.showLabel === undefined ?
+				this.options.showLabel :
+				options.showLabel,
+			newIcon = options.icon === undefined ? this.options.icon : options.icon;
+
+		if ( !newShowLabel && !newIcon ) {
+			options.showLabel = true;
+		}
+		this._super( options );
+	},
+
+	_setOption: function( key, value ) {
+		if ( key === "icon" ) {
+			if ( value ) {
+				this._updateIcon( key, value );
+			} else if ( this.icon ) {
+				this.icon.remove();
+				if ( this.iconSpace ) {
+					this.iconSpace.remove();
+				}
+			}
+		}
+
+		if ( key === "iconPosition" ) {
+			this._updateIcon( key, value );
+		}
+
+		// Make sure we can't end up with a button that has neither text nor icon
+		if ( key === "showLabel" ) {
+				this._toggleClass( "ui-button-icon-only", null, !value );
+				this._updateTooltip();
+		}
+
+		if ( key === "label" ) {
+			if ( this.isInput ) {
+				this.element.val( value );
+			} else {
+
+				// If there is an icon, append it, else nothing then append the value
+				// this avoids removal of the icon when setting label text
+				this.element.html( value );
+				if ( this.icon ) {
+					this._attachIcon( this.options.iconPosition );
+					this._attachIconSpace( this.options.iconPosition );
+				}
+			}
+		}
+
+		this._super( key, value );
+
+		if ( key === "disabled" ) {
+			this._toggleClass( null, "ui-state-disabled", value );
+			this.element[ 0 ].disabled = value;
+			if ( value ) {
+				this.element.blur();
+			}
+		}
+	},
+
+	refresh: function() {
+
+		// Make sure to only check disabled if its an element that supports this otherwise
+		// check for the disabled class to determine state
+		var isDisabled = this.element.is( "input, button" ) ?
+			this.element[ 0 ].disabled : this.element.hasClass( "ui-button-disabled" );
+
+		if ( isDisabled !== this.options.disabled ) {
+			this._setOptions( { disabled: isDisabled } );
+		}
+
+		this._updateTooltip();
+	}
+} );
+
+// DEPRECATED
+if ( $.uiBackCompat !== false ) {
+
+	// Text and Icons options
+	$.widget( "ui.button", $.ui.button, {
+		options: {
+			text: true,
+			icons: {
+				primary: null,
+				secondary: null
+			}
+		},
+
+		_create: function() {
+			if ( this.options.showLabel && !this.options.text ) {
+				this.options.showLabel = this.options.text;
+			}
+			if ( !this.options.showLabel && this.options.text ) {
+				this.options.text = this.options.showLabel;
+			}
+			if ( !this.options.icon && ( this.options.icons.primary ||
+					this.options.icons.secondary ) ) {
+				if ( this.options.icons.primary ) {
+					this.options.icon = this.options.icons.primary;
+				} else {
+					this.options.icon = this.options.icons.secondary;
+					this.options.iconPosition = "end";
+				}
+			} else if ( this.options.icon ) {
+				this.options.icons.primary = this.options.icon;
+			}
+			this._super();
+		},
+
+		_setOption: function( key, value ) {
+			if ( key === "text" ) {
+				this._super( "showLabel", value );
+				return;
+			}
+			if ( key === "showLabel" ) {
+				this.options.text = value;
+			}
+			if ( key === "icon" ) {
+				this.options.icons.primary = value;
+			}
+			if ( key === "icons" ) {
+				if ( value.primary ) {
+					this._super( "icon", value.primary );
+					this._super( "iconPosition", "beginning" );
+				} else if ( value.secondary ) {
+					this._super( "icon", value.secondary );
+					this._super( "iconPosition", "end" );
+				}
+			}
+			this._superApply( arguments );
+		}
+	} );
+
+	$.fn.button = ( function( orig ) {
+		return function() {
+			if ( !this.length || ( this.length && this[ 0 ].tagName !== "INPUT" ) ||
+					( this.length && this[ 0 ].tagName === "INPUT" && (
+						this.attr( "type" ) !== "checkbox" && this.attr( "type" ) !== "radio"
+					) ) ) {
+				return orig.apply( this, arguments );
+			}
+			if ( !$.ui.checkboxradio ) {
+				$.error( "Checkboxradio widget missing" );
+			}
+			if ( arguments.length === 0 ) {
+				return this.checkboxradio( {
+					"icon": false
+				} );
+			}
+			return this.checkboxradio.apply( this, arguments );
+		};
+	} )( $.fn.button );
+
+	$.fn.buttonset = function() {
+		if ( !$.ui.controlgroup ) {
+			$.error( "Controlgroup widget missing" );
+		}
+		if ( arguments[ 0 ] === "option" && arguments[ 1 ] === "items" && arguments[ 2 ] ) {
+			return this.controlgroup.apply( this,
+				[ arguments[ 0 ], "items.button", arguments[ 2 ] ] );
+		}
+		if ( arguments[ 0 ] === "option" && arguments[ 1 ] === "items" ) {
+			return this.controlgroup.apply( this, [ arguments[ 0 ], "items.button" ] );
+		}
+		if ( typeof arguments[ 0 ] === "object" && arguments[ 0 ].items ) {
+			arguments[ 0 ].items = {
+				button: arguments[ 0 ].items
+			};
+		}
+		return this.controlgroup.apply( this, arguments );
+	};
+}
+
+return $.ui.button;
+
+} ) );
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Checkboxradio 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Checkboxradio
+//>>group: Widgets
+//>>description: Enhances a form with multiple themeable checkboxes or radio buttons.
+//>>docs: http://api.jqueryui.com/checkboxradio/
+//>>demos: http://jqueryui.com/checkboxradio/
+//>>css.structure: ../../themes/base/core.css
+//>>css.structure: ../../themes/base/button.css
+//>>css.structure: ../../themes/base/checkboxradio.css
+//>>css.theme: ../../themes/base/theme.css
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+			__webpack_require__(0),
+			__webpack_require__(7),
+			__webpack_require__(24),
+			__webpack_require__(26),
+			__webpack_require__(2)
+		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}( function( $ ) {
+
+$.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
+	version: "1.12.1",
+	options: {
+		disabled: null,
+		label: null,
+		icon: true,
+		classes: {
+			"ui-checkboxradio-label": "ui-corner-all",
+			"ui-checkboxradio-icon": "ui-corner-all"
+		}
+	},
+
+	_getCreateOptions: function() {
+		var disabled, labels;
+		var that = this;
+		var options = this._super() || {};
+
+		// We read the type here, because it makes more sense to throw a element type error first,
+		// rather then the error for lack of a label. Often if its the wrong type, it
+		// won't have a label (e.g. calling on a div, btn, etc)
+		this._readType();
+
+		labels = this.element.labels();
+
+		// If there are multiple labels, use the last one
+		this.label = $( labels[ labels.length - 1 ] );
+		if ( !this.label.length ) {
+			$.error( "No label found for checkboxradio widget" );
+		}
+
+		this.originalLabel = "";
+
+		// We need to get the label text but this may also need to make sure it does not contain the
+		// input itself.
+		this.label.contents().not( this.element[ 0 ] ).each( function() {
+
+			// The label contents could be text, html, or a mix. We concat each element to get a
+			// string representation of the label, without the input as part of it.
+			that.originalLabel += this.nodeType === 3 ? $( this ).text() : this.outerHTML;
+		} );
+
+		// Set the label option if we found label text
+		if ( this.originalLabel ) {
+			options.label = this.originalLabel;
+		}
+
+		disabled = this.element[ 0 ].disabled;
+		if ( disabled != null ) {
+			options.disabled = disabled;
+		}
+		return options;
+	},
+
+	_create: function() {
+		var checked = this.element[ 0 ].checked;
+
+		this._bindFormResetHandler();
+
+		if ( this.options.disabled == null ) {
+			this.options.disabled = this.element[ 0 ].disabled;
+		}
+
+		this._setOption( "disabled", this.options.disabled );
+		this._addClass( "ui-checkboxradio", "ui-helper-hidden-accessible" );
+		this._addClass( this.label, "ui-checkboxradio-label", "ui-button ui-widget" );
+
+		if ( this.type === "radio" ) {
+			this._addClass( this.label, "ui-checkboxradio-radio-label" );
+		}
+
+		if ( this.options.label && this.options.label !== this.originalLabel ) {
+			this._updateLabel();
+		} else if ( this.originalLabel ) {
+			this.options.label = this.originalLabel;
+		}
+
+		this._enhance();
+
+		if ( checked ) {
+			this._addClass( this.label, "ui-checkboxradio-checked", "ui-state-active" );
+			if ( this.icon ) {
+				this._addClass( this.icon, null, "ui-state-hover" );
+			}
+		}
+
+		this._on( {
+			change: "_toggleClasses",
+			focus: function() {
+				this._addClass( this.label, null, "ui-state-focus ui-visual-focus" );
+			},
+			blur: function() {
+				this._removeClass( this.label, null, "ui-state-focus ui-visual-focus" );
+			}
+		} );
+	},
+
+	_readType: function() {
+		var nodeName = this.element[ 0 ].nodeName.toLowerCase();
+		this.type = this.element[ 0 ].type;
+		if ( nodeName !== "input" || !/radio|checkbox/.test( this.type ) ) {
+			$.error( "Can't create checkboxradio on element.nodeName=" + nodeName +
+				" and element.type=" + this.type );
+		}
+	},
+
+	// Support jQuery Mobile enhanced option
+	_enhance: function() {
+		this._updateIcon( this.element[ 0 ].checked );
+	},
+
+	widget: function() {
+		return this.label;
+	},
+
+	_getRadioGroup: function() {
+		var group;
+		var name = this.element[ 0 ].name;
+		var nameSelector = "input[name='" + $.ui.escapeSelector( name ) + "']";
+
+		if ( !name ) {
+			return $( [] );
+		}
+
+		if ( this.form.length ) {
+			group = $( this.form[ 0 ].elements ).filter( nameSelector );
+		} else {
+
+			// Not inside a form, check all inputs that also are not inside a form
+			group = $( nameSelector ).filter( function() {
+				return $( this ).form().length === 0;
+			} );
+		}
+
+		return group.not( this.element );
+	},
+
+	_toggleClasses: function() {
+		var checked = this.element[ 0 ].checked;
+		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-active", checked );
+
+		if ( this.options.icon && this.type === "checkbox" ) {
+			this._toggleClass( this.icon, null, "ui-icon-check ui-state-checked", checked )
+				._toggleClass( this.icon, null, "ui-icon-blank", !checked );
+		}
+
+		if ( this.type === "radio" ) {
+			this._getRadioGroup()
+				.each( function() {
+					var instance = $( this ).checkboxradio( "instance" );
+
+					if ( instance ) {
+						instance._removeClass( instance.label,
+							"ui-checkboxradio-checked", "ui-state-active" );
+					}
+				} );
+		}
+	},
+
+	_destroy: function() {
+		this._unbindFormResetHandler();
+
+		if ( this.icon ) {
+			this.icon.remove();
+			this.iconSpace.remove();
+		}
+	},
+
+	_setOption: function( key, value ) {
+
+		// We don't allow the value to be set to nothing
+		if ( key === "label" && !value ) {
+			return;
+		}
+
+		this._super( key, value );
+
+		if ( key === "disabled" ) {
+			this._toggleClass( this.label, null, "ui-state-disabled", value );
+			this.element[ 0 ].disabled = value;
+
+			// Don't refresh when setting disabled
+			return;
+		}
+		this.refresh();
+	},
+
+	_updateIcon: function( checked ) {
+		var toAdd = "ui-icon ui-icon-background ";
+
+		if ( this.options.icon ) {
+			if ( !this.icon ) {
+				this.icon = $( "<span>" );
+				this.iconSpace = $( "<span> </span>" );
+				this._addClass( this.iconSpace, "ui-checkboxradio-icon-space" );
+			}
+
+			if ( this.type === "checkbox" ) {
+				toAdd += checked ? "ui-icon-check ui-state-checked" : "ui-icon-blank";
+				this._removeClass( this.icon, null, checked ? "ui-icon-blank" : "ui-icon-check" );
+			} else {
+				toAdd += "ui-icon-blank";
+			}
+			this._addClass( this.icon, "ui-checkboxradio-icon", toAdd );
+			if ( !checked ) {
+				this._removeClass( this.icon, null, "ui-icon-check ui-state-checked" );
+			}
+			this.icon.prependTo( this.label ).after( this.iconSpace );
+		} else if ( this.icon !== undefined ) {
+			this.icon.remove();
+			this.iconSpace.remove();
+			delete this.icon;
+		}
+	},
+
+	_updateLabel: function() {
+
+		// Remove the contents of the label ( minus the icon, icon space, and input )
+		var contents = this.label.contents().not( this.element[ 0 ] );
+		if ( this.icon ) {
+			contents = contents.not( this.icon[ 0 ] );
+		}
+		if ( this.iconSpace ) {
+			contents = contents.not( this.iconSpace[ 0 ] );
+		}
+		contents.remove();
+
+		this.label.append( this.options.label );
+	},
+
+	refresh: function() {
+		var checked = this.element[ 0 ].checked,
+			isDisabled = this.element[ 0 ].disabled;
+
+		this._updateIcon( checked );
+		this._toggleClass( this.label, "ui-checkboxradio-checked", "ui-state-active", checked );
+		if ( this.options.label !== null ) {
+			this._updateLabel();
+		}
+
+		if ( isDisabled !== this.options.disabled ) {
+			this._setOptions( { "disabled": isDisabled } );
+		}
+	}
+
+} ] );
+
+return $.ui.checkboxradio;
+
+} ) );
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Controlgroup 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Controlgroup
+//>>group: Widgets
+//>>description: Visually groups form control widgets
+//>>docs: http://api.jqueryui.com/controlgroup/
+//>>demos: http://jqueryui.com/controlgroup/
+//>>css.structure: ../../themes/base/core.css
+//>>css.structure: ../../themes/base/controlgroup.css
+//>>css.theme: ../../themes/base/theme.css
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+			__webpack_require__(0),
+			__webpack_require__(2)
+		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}( function( $ ) {
+var controlgroupCornerRegex = /ui-corner-([a-z]){2,6}/g;
+
+return $.widget( "ui.controlgroup", {
+	version: "1.12.1",
+	defaultElement: "<div>",
+	options: {
+		direction: "horizontal",
+		disabled: null,
+		onlyVisible: true,
+		items: {
+			"button": "input[type=button], input[type=submit], input[type=reset], button, a",
+			"controlgroupLabel": ".ui-controlgroup-label",
+			"checkboxradio": "input[type='checkbox'], input[type='radio']",
+			"selectmenu": "select",
+			"spinner": ".ui-spinner-input"
+		}
+	},
+
+	_create: function() {
+		this._enhance();
+	},
+
+	// To support the enhanced option in jQuery Mobile, we isolate DOM manipulation
+	_enhance: function() {
+		this.element.attr( "role", "toolbar" );
+		this.refresh();
+	},
+
+	_destroy: function() {
+		this._callChildMethod( "destroy" );
+		this.childWidgets.removeData( "ui-controlgroup-data" );
+		this.element.removeAttr( "role" );
+		if ( this.options.items.controlgroupLabel ) {
+			this.element
+				.find( this.options.items.controlgroupLabel )
+				.find( ".ui-controlgroup-label-contents" )
+				.contents().unwrap();
+		}
+	},
+
+	_initWidgets: function() {
+		var that = this,
+			childWidgets = [];
+
+		// First we iterate over each of the items options
+		$.each( this.options.items, function( widget, selector ) {
+			var labels;
+			var options = {};
+
+			// Make sure the widget has a selector set
+			if ( !selector ) {
+				return;
+			}
+
+			if ( widget === "controlgroupLabel" ) {
+				labels = that.element.find( selector );
+				labels.each( function() {
+					var element = $( this );
+
+					if ( element.children( ".ui-controlgroup-label-contents" ).length ) {
+						return;
+					}
+					element.contents()
+						.wrapAll( "<span class='ui-controlgroup-label-contents'></span>" );
+				} );
+				that._addClass( labels, null, "ui-widget ui-widget-content ui-state-default" );
+				childWidgets = childWidgets.concat( labels.get() );
+				return;
+			}
+
+			// Make sure the widget actually exists
+			if ( !$.fn[ widget ] ) {
+				return;
+			}
+
+			// We assume everything is in the middle to start because we can't determine
+			// first / last elements until all enhancments are done.
+			if ( that[ "_" + widget + "Options" ] ) {
+				options = that[ "_" + widget + "Options" ]( "middle" );
+			} else {
+				options = { classes: {} };
+			}
+
+			// Find instances of this widget inside controlgroup and init them
+			that.element
+				.find( selector )
+				.each( function() {
+					var element = $( this );
+					var instance = element[ widget ]( "instance" );
+
+					// We need to clone the default options for this type of widget to avoid
+					// polluting the variable options which has a wider scope than a single widget.
+					var instanceOptions = $.widget.extend( {}, options );
+
+					// If the button is the child of a spinner ignore it
+					// TODO: Find a more generic solution
+					if ( widget === "button" && element.parent( ".ui-spinner" ).length ) {
+						return;
+					}
+
+					// Create the widget if it doesn't exist
+					if ( !instance ) {
+						instance = element[ widget ]()[ widget ]( "instance" );
+					}
+					if ( instance ) {
+						instanceOptions.classes =
+							that._resolveClassesValues( instanceOptions.classes, instance );
+					}
+					element[ widget ]( instanceOptions );
+
+					// Store an instance of the controlgroup to be able to reference
+					// from the outermost element for changing options and refresh
+					var widgetElement = element[ widget ]( "widget" );
+					$.data( widgetElement[ 0 ], "ui-controlgroup-data",
+						instance ? instance : element[ widget ]( "instance" ) );
+
+					childWidgets.push( widgetElement[ 0 ] );
+				} );
+		} );
+
+		this.childWidgets = $( $.unique( childWidgets ) );
+		this._addClass( this.childWidgets, "ui-controlgroup-item" );
+	},
+
+	_callChildMethod: function( method ) {
+		this.childWidgets.each( function() {
+			var element = $( this ),
+				data = element.data( "ui-controlgroup-data" );
+			if ( data && data[ method ] ) {
+				data[ method ]();
+			}
+		} );
+	},
+
+	_updateCornerClass: function( element, position ) {
+		var remove = "ui-corner-top ui-corner-bottom ui-corner-left ui-corner-right ui-corner-all";
+		var add = this._buildSimpleOptions( position, "label" ).classes.label;
+
+		this._removeClass( element, null, remove );
+		this._addClass( element, null, add );
+	},
+
+	_buildSimpleOptions: function( position, key ) {
+		var direction = this.options.direction === "vertical";
+		var result = {
+			classes: {}
+		};
+		result.classes[ key ] = {
+			"middle": "",
+			"first": "ui-corner-" + ( direction ? "top" : "left" ),
+			"last": "ui-corner-" + ( direction ? "bottom" : "right" ),
+			"only": "ui-corner-all"
+		}[ position ];
+
+		return result;
+	},
+
+	_spinnerOptions: function( position ) {
+		var options = this._buildSimpleOptions( position, "ui-spinner" );
+
+		options.classes[ "ui-spinner-up" ] = "";
+		options.classes[ "ui-spinner-down" ] = "";
+
+		return options;
+	},
+
+	_buttonOptions: function( position ) {
+		return this._buildSimpleOptions( position, "ui-button" );
+	},
+
+	_checkboxradioOptions: function( position ) {
+		return this._buildSimpleOptions( position, "ui-checkboxradio-label" );
+	},
+
+	_selectmenuOptions: function( position ) {
+		var direction = this.options.direction === "vertical";
+		return {
+			width: direction ? "auto" : false,
+			classes: {
+				middle: {
+					"ui-selectmenu-button-open": "",
+					"ui-selectmenu-button-closed": ""
+				},
+				first: {
+					"ui-selectmenu-button-open": "ui-corner-" + ( direction ? "top" : "tl" ),
+					"ui-selectmenu-button-closed": "ui-corner-" + ( direction ? "top" : "left" )
+				},
+				last: {
+					"ui-selectmenu-button-open": direction ? "" : "ui-corner-tr",
+					"ui-selectmenu-button-closed": "ui-corner-" + ( direction ? "bottom" : "right" )
+				},
+				only: {
+					"ui-selectmenu-button-open": "ui-corner-top",
+					"ui-selectmenu-button-closed": "ui-corner-all"
+				}
+
+			}[ position ]
+		};
+	},
+
+	_resolveClassesValues: function( classes, instance ) {
+		var result = {};
+		$.each( classes, function( key ) {
+			var current = instance.options.classes[ key ] || "";
+			current = $.trim( current.replace( controlgroupCornerRegex, "" ) );
+			result[ key ] = ( current + " " + classes[ key ] ).replace( /\s+/g, " " );
+		} );
+		return result;
+	},
+
+	_setOption: function( key, value ) {
+		if ( key === "direction" ) {
+			this._removeClass( "ui-controlgroup-" + this.options.direction );
+		}
+
+		this._super( key, value );
+		if ( key === "disabled" ) {
+			this._callChildMethod( value ? "disable" : "enable" );
+			return;
+		}
+
+		this.refresh();
+	},
+
+	refresh: function() {
+		var children,
+			that = this;
+
+		this._addClass( "ui-controlgroup ui-controlgroup-" + this.options.direction );
+
+		if ( this.options.direction === "horizontal" ) {
+			this._addClass( null, "ui-helper-clearfix" );
+		}
+		this._initWidgets();
+
+		children = this.childWidgets;
+
+		// We filter here because we need to track all childWidgets not just the visible ones
+		if ( this.options.onlyVisible ) {
+			children = children.filter( ":visible" );
+		}
+
+		if ( children.length ) {
+
+			// We do this last because we need to make sure all enhancment is done
+			// before determining first and last
+			$.each( [ "first", "last" ], function( index, value ) {
+				var instance = children[ value ]().data( "ui-controlgroup-data" );
+
+				if ( instance && that[ "_" + instance.widgetName + "Options" ] ) {
+					var options = that[ "_" + instance.widgetName + "Options" ](
+						children.length === 1 ? "only" : value
+					);
+					options.classes = that._resolveClassesValues( options.classes, instance );
+					instance.element[ instance.widgetName ]( options );
+				} else {
+					that._updateCornerClass( children[ value ](), value );
+				}
+			} );
+
+			// Finally call the refresh method on each of the child widgets.
+			this._callChildMethod( "refresh" );
+		}
+	}
+} );
+} ) );
+
+
+/***/ }),
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5121,20 +8045,26 @@ return $.ui.safeBlur = function( element ) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_jquery_ui_ui_widgets_draggable__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_jquery_ui_ui_widgets_draggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__node_modules_jquery_ui_ui_widgets_draggable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_jquery_ui_ui_widgets_droppable__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_jquery_ui_ui_widgets_droppable__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_jquery_ui_ui_widgets_droppable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__node_modules_jquery_ui_ui_widgets_droppable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__node_modules_jquery_ui_ui_widgets_resizable__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__node_modules_jquery_ui_ui_widgets_resizable__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__node_modules_jquery_ui_ui_widgets_resizable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__node_modules_jquery_ui_ui_widgets_resizable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__node_modules_jquery_ui_ui_widgets_sortable__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__node_modules_jquery_ui_ui_widgets_sortable__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__node_modules_jquery_ui_ui_widgets_sortable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__node_modules_jquery_ui_ui_widgets_sortable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__node_modules_jquery_ui_themes_base_draggable_css__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__node_modules_jquery_ui_themes_base_draggable_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__node_modules_jquery_ui_themes_base_draggable_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__node_modules_jquery_ui_themes_base_resizable_css__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__node_modules_jquery_ui_themes_base_resizable_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__node_modules_jquery_ui_themes_base_resizable_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__node_modules_jquery_ui_themes_base_sortable_css__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__node_modules_jquery_ui_themes_base_sortable_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__node_modules_jquery_ui_themes_base_sortable_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src_css_style_css__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src_css_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__src_css_style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__node_modules_jquery_ui_ui_widgets_dialog__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__node_modules_jquery_ui_ui_widgets_dialog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__node_modules_jquery_ui_ui_widgets_dialog__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__node_modules_jquery_ui_themes_base_all_css__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__node_modules_jquery_ui_themes_base_all_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__node_modules_jquery_ui_themes_base_all_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__node_modules_jquery_ui_themes_base_draggable_css__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__node_modules_jquery_ui_themes_base_draggable_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__node_modules_jquery_ui_themes_base_draggable_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__node_modules_jquery_ui_themes_base_resizable_css__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__node_modules_jquery_ui_themes_base_resizable_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__node_modules_jquery_ui_themes_base_resizable_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__node_modules_jquery_ui_themes_base_sortable_css__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__node_modules_jquery_ui_themes_base_sortable_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__node_modules_jquery_ui_themes_base_sortable_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__src_css_style_css__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__src_css_style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__src_css_style_css__);
+
+
 
 
 
@@ -5148,6 +8078,8 @@ return $.ui.safeBlur = function( element ) {
 
 
 $(document).ready(function(){
+
+   
     $( "#sortable" ).sortable({
         revert: true
       });
@@ -5173,7 +8105,7 @@ $(document).ready(function(){
       
             $("#main-container").removeClass("dotted-border");
             
-            $("#main-container").append(ui.draggable);
+            $("#dialog-form").dialog("open")
             $("#main-container > .container").addClass("full-width");
             $("#main-container > .container").attr("data-value", "drop-container")
         },
@@ -5193,8 +8125,31 @@ $(document).ready(function(){
         // }
         // hoverClass:"highlight"
     });
+
+    $("#dialog-form").dialog({
+        autoOpen: false,
+        height: 400,
+        width: 350,
+        modal: true,
+        buttons: {
+          "Add": function(){
+              
+            $("#main-container").append("ADDD");
+            $("#dialog-form").dialog( "close" );
+          },
+          Cancel: function() {
+            $("#dialog-form").dialog( "close" );
+          }
+        },
+        close: function() {
+        //   form[ 0 ].reset();
+        //   allFields.removeClass( "ui-state-error" );
+        }
+      });
+     
+
 })
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ })
-],[19]);
+],[33]);
